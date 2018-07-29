@@ -4,37 +4,39 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.ExclusionStrategy;
+import com.google.gson.FieldAttributes;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.util.ArrayList;
 
 
 public class GameFragment extends Fragment {
 
-
-
-    // Reference to all used images stored locally (Such a stupid thing declaring them that way, but i had no time to go the pretty way!!)
-    public int[] imageList = {R.drawable.got,
-            R.drawable.watch,
-            R.drawable.avatar,
-            R.drawable.assassin,
-            R.drawable.fifa,
-            R.drawable.pes,
-            R.drawable.cod,
-            R.drawable.farcry};
-
-    public String[] gameList = {"Game of Thrones", "Watch Dogs", "Avatar", "Assassin's Creed",
-            "Fifa 18", "PES 18", "COD: Infinite Warfare", "Far Cry 4"};
-
-    public String[] priceValueList = {"69.99", "149.99", "79.99", "44.49", "99.99", "119.99", "99.99", "107.95"};
-    public Float[] rateValueList = {3.5f, 3.0f, 4.0f, 4.5f, 3.0f, 4.5f, 4.5f, 4.5f};
-
     public ArrayList<GameModel> marketGames;
     public RecyclerView recyclerView;
     GameRecyclerAdapter adapter;
     GridLayoutManager gridLayoutManager;
+
+    //Volley
+    private RequestQueue requestQueue;
+    public static ArrayList<String> strList;
+    private String API_URL = "https://api.myjson.com/bins/11wuyy";
 
 
     public GameFragment() {
@@ -54,19 +56,16 @@ public class GameFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_game, container, false);
 
+        //Volley
+        requestQueue = Volley.newRequestQueue(getActivity());
+        strList = new ArrayList<>();
+
+        loadGames();
+
         // Main list that holds all the games cards Objects to convey them later to the RecyclerView
         marketGames = new ArrayList<>();
         recyclerView = (RecyclerView) v.findViewById(R.id.gameRecyclerView);
 
-        //Filling cards objects with its data and store the cards into the list
-        for (int i = 0; i < gameList.length; i++) {
-            GameModel game = new GameModel();
-            game.setImageRef(imageList[i]);
-            game.setGameTitle(gameList[i]);
-            game.setPriceValue(priceValueList[i]);
-            game.setRateValue(rateValueList[i]);
-            marketGames.add(game);
-        }
 
         //Passing the full list to the RecyclerView adapter to show them,
         // Passing the Activity context too letting the adapter know which Activity is calling in the whole App
@@ -82,6 +81,72 @@ public class GameFragment extends Fragment {
         
         //Now, ShowTime... :)
         return v;
+    }
+
+    private void loadGames() {
+
+        StringRequest request = new StringRequest(Request.Method.GET, API_URL,
+
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.i("Statuss", "Got Response!");
+
+
+                        // Initialize Gson and start new transaction
+                        Gson gson = new GsonBuilder().setExclusionStrategies(new ExclusionStrategy() {
+                            @Override
+                            public boolean shouldSkipField(FieldAttributes f) {
+                                return false;
+                            }
+
+                            @Override
+                            public boolean shouldSkipClass(Class<?> clazz) {
+                                return false;
+                            }
+                        }).create();
+
+                        Log.i("titles", response);
+
+                        try {
+                            JSONArray mainArray = new JSONArray(response);
+
+
+
+                            for (int i = 0; i < mainArray.length(); i++) {
+                                String mainStr = mainArray.get(i).toString();
+                                strList.add(mainStr);
+                                GameModel game = gson.fromJson(mainStr, GameModel.class);
+
+
+                                Log.i("urls", game.getImageRef());
+
+
+                                marketGames.add(game);
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+                        //Notify the RecyclerView with the new data..
+                        adapter.notifyDataSetChanged();
+
+                    }
+                }, new Response.ErrorListener()
+
+
+        {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+
+        });
+        requestQueue.add(request);
+
     }
 
 

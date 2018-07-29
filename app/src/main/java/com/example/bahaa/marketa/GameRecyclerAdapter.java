@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 import me.zhanghai.android.materialratingbar.MaterialRatingBar;
@@ -79,7 +81,9 @@ public class GameRecyclerAdapter extends RecyclerView.Adapter {
         public void BindView(final int position) {
 
 
-            cardImage.setImageResource(adapterModel.get(position).getImageRef());
+            Picasso.with(context)
+                    .load(adapterModel.get(position).getImageRef())
+                    .into(cardImage);
             cardTitle.setText(adapterModel.get(position).getGameTitle());
             rateValue.setText(adapterModel.get(position).getPriceValue() + "$");
 
@@ -101,11 +105,11 @@ public class GameRecyclerAdapter extends RecyclerView.Adapter {
                     intent.putExtra("smallImg", adapterModel.get(position).getImageRef());
 
                     intent.putExtra("title", adapterModel.get(position).getGameTitle());
-                    intent.putExtra("plot", adapterModel.get(position).getPlot(position));
-                    intent.putExtra("date", "Release Date: " + adapterModel.get(position).getDate(position));
-                    intent.putExtra("mode", "Modes: " + adapterModel.get(position).getMode(position));
-                    intent.putExtra("dev", "Developers: " + adapterModel.get(position).getDev(position));
-                    intent.putExtra("platform", "Platforms: " + adapterModel.get(position).getPlatform(position));
+                    intent.putExtra("plot", adapterModel.get(position).getPlot());
+                    intent.putExtra("date", "Release Date: " + adapterModel.get(position).getRelDate());
+                    intent.putExtra("mode", "Modes: " + adapterModel.get(position).getMode());
+                    intent.putExtra("dev", "Developers: " + adapterModel.get(position).getDevs());
+                    intent.putExtra("platform", "Platforms: " + adapterModel.get(position).getPlatforms());
 
                     intent.putExtra("price", Float.parseFloat(adapterModel.get(position).getPriceValue()));
                     context.startActivity(intent, bundle);

@@ -1,32 +1,50 @@
 package com.example.bahaa.marketa;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Bahaa on 12/19/2017.
  */
 
 public class MovieModel {
 
-    public int coverImgRef, smallImgRef;
-    public String movieTitle, moviePlot, moviePrice;
 
-    public MovieModel(int coverImgRef, int smallImgRef, String movieDetails, String moviePlot, String moviePrice) {
-        this.coverImgRef = coverImgRef;
-        this.smallImgRef = smallImgRef;
-        this.movieTitle = movieDetails;
-        this.moviePlot = moviePlot;
-        this.moviePrice = moviePrice;
-    }
+    @SerializedName("imgURL")
+    private String imgURL;
+
+    @SerializedName("thumbnailURL")
+    private String thumbnailURL;
+
+    @SerializedName("title")
+    private String movieTitle;
+
+    @SerializedName("plot")
+    private String moviePlot;
+
+    @SerializedName("price")
+    private String moviePrice;
+
+
+
     public MovieModel() {
         //Required Empty constructor
     }
 
-
-    public int getCoverImgRef() {
-        return coverImgRef;
+    public MovieModel(String imgURL, String thumbnailURL, String movieTitle, String moviePlot, String moviePrice) {
+        this.imgURL = imgURL;
+        this.thumbnailURL = thumbnailURL;
+        this.movieTitle = movieTitle;
+        this.moviePlot = moviePlot;
+        this.moviePrice = moviePrice;
     }
 
-    public int getSmallImgRef() {
-        return smallImgRef;
+
+    public String getImgURL() {
+        return imgURL;
+    }
+
+    public String getThumbnailURL() {
+        return thumbnailURL;
     }
 
     public String getMovieTitle() {
@@ -39,26 +57,5 @@ public class MovieModel {
 
     public String getMoviePrice() {
         return moviePrice;
-    }
-
-
-    public void setCoverImgRef(int coverImgRef) {
-        this.coverImgRef = coverImgRef;
-    }
-
-    public void setSmallImgRef(int smallImgRef) {
-        this.smallImgRef = smallImgRef;
-    }
-
-    public void setMovieTitle(String movieTitle) {
-        this.movieTitle = movieTitle;
-    }
-
-    public void setMoviePlot(String moviePlot) {
-        this.moviePlot = moviePlot;
-    }
-
-    public void setMoviePrice(String moviePrice) {
-        this.moviePrice = moviePrice;
     }
 }

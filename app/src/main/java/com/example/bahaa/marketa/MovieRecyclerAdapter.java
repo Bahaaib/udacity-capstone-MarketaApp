@@ -14,6 +14,8 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 /**
@@ -77,8 +79,13 @@ public class MovieRecyclerAdapter extends RecyclerView.Adapter {
             moviePlot.setText(adapterModel.get(position).getMoviePlot());
             moviePrice.setText(adapterModel.get(position).getMoviePrice() + "$");
 
-            movieCardCover.setImageResource(adapterModel.get(position).getCoverImgRef());
-            movieCardSmall.setImageResource(adapterModel.get(position).getSmallImgRef());
+            Picasso.with(context)
+                    .load(adapterModel.get(position).getThumbnailURL())
+                    .into(movieCardCover);
+
+            Picasso.with(context)
+                    .load(adapterModel.get(position).getImgURL())
+                    .into(movieCardSmall);
 
             //Implement some sexy animation with time.. ;)
             AlphaAnimation anim = new AlphaAnimation(1.0f, 0.2f);
@@ -96,9 +103,9 @@ public class MovieRecyclerAdapter extends RecyclerView.Adapter {
                     //Transfer all the card data to the details activity for further use..
                     Intent movieIntent = new Intent(context, MovieDetailsActivity.class);
                     movieIntent.putExtra("moviePlot", adapterModel.get(position).getMoviePlot());
-                    movieIntent.putExtra("movieCoverImg",adapterModel.get(position).getCoverImgRef());
+                    movieIntent.putExtra("movieCoverImg",adapterModel.get(position).getThumbnailURL());
                     movieIntent.putExtra("movieTitle",adapterModel.get(position).getMovieTitle());
-                    movieIntent.putExtra("movieSmallImg",adapterModel.get(position).getSmallImgRef());
+                    movieIntent.putExtra("movieSmallImg",adapterModel.get(position).getImgURL());
                     movieIntent.putExtra("moviePrice",Float.parseFloat(adapterModel.get(position).getMoviePrice()));
 
                     context.startActivity(movieIntent, bundle);

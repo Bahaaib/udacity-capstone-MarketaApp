@@ -30,6 +30,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import static com.example.bahaa.marketa.MainActivity.itemsList;
 
 public class GameDetailsActivity extends AppCompatActivity {
@@ -107,8 +109,14 @@ public class GameDetailsActivity extends AppCompatActivity {
         animationSet.playTogether(cardBody, gameCover);
         animationSet.start();
 
-        coverImg.setImageResource(getIntent().getIntExtra("coverImg", 1));
-        smallImg.setImageResource(getIntent().getIntExtra("smallImg", 1));
+        Picasso.with(this)
+                .load(getIntent().getStringExtra("coverImg"))
+                .into(coverImg);
+
+
+        Picasso.with(this)
+                .load(getIntent().getStringExtra("smallImg"))
+                .into(smallImg);
 
         title.setText(getIntent().getStringExtra("title"));
         plot.setText(getIntent().getStringExtra("plot"));

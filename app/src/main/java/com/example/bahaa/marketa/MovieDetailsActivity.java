@@ -30,6 +30,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import static com.example.bahaa.marketa.MainActivity.itemsList;
 
 
@@ -94,7 +96,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
         animationSet.play(movieCard);
         animationSet.start();
 
-        movieCoverImg.setImageResource(intent.getIntExtra("movieCoverImg", 1));
+        Picasso.with(context)
+                .load(intent.getStringExtra("movieCoverImg"))
+                .into(movieCoverImg);
         moviePlot.setText(intent.getStringExtra("moviePlot"));
 
 

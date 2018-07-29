@@ -4,38 +4,39 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.ExclusionStrategy;
+import com.google.gson.FieldAttributes;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.util.ArrayList;
 
 
 public class BookFragment extends Fragment {
 
-    //Another Fragment, same stupidity :)
-    public int[] bookCoverList = {R.drawable.dance,
-            R.drawable.sophie,
-            R.drawable.trial,
-            R.drawable.sugar,
-            R.drawable.silmarillion,
-            R.drawable.right,
-            R.drawable.flower,
-            R.drawable.brothers};
-
-    public String[] bookTitleList = {"Dance Dance Dance", "Sophie's World", "The Trial", "Sugar Street","The Silmarillion",
-            "The Rightous Mind", "The perks of being a wallflower", "The brothers Karamazov"};
-
-    public String[] bookPriceList = {"29.99", "24.99", "7.99", "49.99", "29.99", "49.99", "14.99", "19.99"};
-
-    public String[] bookAuthList = {"Haruki Murakami", "Jostein Gaarder", "Franz Kafka","Naguib Mahfouz", "J.R.R.Tolkien",
-            "Jonathan Haidt", "Stephen Chbosky", "Fyodor Dostoevsky"};
-
-
     public ArrayList<BookModel> marketBooks;
     public RecyclerView bookRV;
     BookRecyclerAdapter bookAdapter;
     GridLayoutManager gridLayoutManager;
+
+    //Volley
+    private RequestQueue requestQueue;
+    public static ArrayList<String> strList;
+    private String API_URL = "https://api.myjson.com/bins/14cqju";
 
 
     public BookFragment() {
@@ -55,19 +56,16 @@ public class BookFragment extends Fragment {
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_book, container, false);
 
+        //Volley
+        requestQueue = Volley.newRequestQueue(getActivity());
+        strList = new ArrayList<>();
+
+        loadBooks();
+
         marketBooks = new ArrayList<>();
         bookRV = (RecyclerView) v.findViewById(R.id.bookRecyclerView);
 
-        for(int i=0; i<bookTitleList.length; i++){
-            BookModel bookModel = new BookModel();
 
-            bookModel.setBookTitle(bookTitleList[i]);
-            bookModel.setBookAuthor(bookAuthList[i]);
-            bookModel.setBookPrice(bookPriceList[i]);
-            bookModel.setBookImgRef(bookCoverList[i]);
-
-            marketBooks.add(bookModel);
-        }
 
         bookAdapter = new BookRecyclerAdapter(this.getActivity(), marketBooks);
         bookRV.setAdapter(bookAdapter);
@@ -77,6 +75,72 @@ public class BookFragment extends Fragment {
         bookRV.setLayoutManager(gridLayoutManager);
 
         return v;
+    }
+
+    private void loadBooks() {
+
+        StringRequest request = new StringRequest(Request.Method.GET, API_URL,
+
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.i("Statuss", "Got Response!");
+
+
+                        // Initialize Gson and start new transaction
+                        Gson gson = new GsonBuilder().setExclusionStrategies(new ExclusionStrategy() {
+                            @Override
+                            public boolean shouldSkipField(FieldAttributes f) {
+                                return false;
+                            }
+
+                            @Override
+                            public boolean shouldSkipClass(Class<?> clazz) {
+                                return false;
+                            }
+                        }).create();
+
+                        Log.i("titles", response);
+
+                        try {
+                            JSONArray mainArray = new JSONArray(response);
+
+
+
+                            for (int i = 0; i < mainArray.length(); i++) {
+                                String mainStr = mainArray.get(i).toString();
+                                strList.add(mainStr);
+                                BookModel book = gson.fromJson(mainStr, BookModel.class);
+
+
+                                Log.i("titles", book.getBookTitle());
+
+
+                                marketBooks.add(book);
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+                        //Notify the RecyclerView with the new data..
+                        bookAdapter.notifyDataSetChanged();
+
+                    }
+                }, new Response.ErrorListener()
+
+
+        {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+
+        });
+        requestQueue.add(request);
+
     }
 
 

@@ -30,6 +30,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import static com.example.bahaa.marketa.MainActivity.itemsList;
 
 
@@ -95,7 +97,10 @@ public class BookDetailsActivity extends AppCompatActivity {
         animationSet.play(bookCard);
         animationSet.start();
 
-        bookCoverImg.setImageResource(intent.getIntExtra("bookCoverImg", 1));
+        Picasso.with(context)
+                .load(intent.getStringExtra("bookCoverImg"))
+                .into(bookCoverImg);
+
         summary.setText(intent.getStringExtra("bookSummary"));
 
 

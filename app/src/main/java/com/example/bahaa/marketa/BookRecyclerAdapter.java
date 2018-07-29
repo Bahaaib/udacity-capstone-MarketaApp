@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 /**
@@ -81,7 +83,9 @@ public class BookRecyclerAdapter extends RecyclerView.Adapter {
             bookAuthor.setText(adapterModel.get(position).getBookAuthor());
             bookPrice.setText(adapterModel.get(position).getBookPrice() + "$");
 
-            bookCover.setImageResource(adapterModel.get(position).getBookImgRef());
+            Picasso.with(context)
+                    .load(adapterModel.get(position).getImgURL())
+                    .into(bookCover);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -93,8 +97,8 @@ public class BookRecyclerAdapter extends RecyclerView.Adapter {
 
                     Intent bookIntent = new Intent(context, BookDetailsActivity.class);
                     //Transfer all the card data to the details activity for further use..
-                    bookIntent.putExtra("bookCoverImg", adapterModel.get(position).getBookImgRef());
-                    bookIntent.putExtra("bookSummary", adapterModel.get(position).summary[position]);
+                    bookIntent.putExtra("bookCoverImg", adapterModel.get(position).getImgURL());
+                    bookIntent.putExtra("bookSummary", adapterModel.get(position).getSummary());
                     bookIntent.putExtra("bookTitle", adapterModel.get(position).getBookTitle());
                     bookIntent.putExtra("bookPrice", Float.parseFloat(adapterModel.get(position).getBookPrice()));
                     context.startActivity(bookIntent, bundle);
