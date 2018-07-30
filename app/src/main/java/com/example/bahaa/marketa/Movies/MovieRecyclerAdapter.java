@@ -1,4 +1,4 @@
-package com.example.bahaa.marketa;
+package com.example.bahaa.marketa.Movies;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,6 +14,7 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.bahaa.marketa.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

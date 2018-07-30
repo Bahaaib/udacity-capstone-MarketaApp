@@ -1,8 +1,8 @@
-package com.example.bahaa.marketa;
+package com.example.bahaa.marketa.Games;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.bahaa.marketa.R;
 import com.google.gson.ExclusionStrategy;
 import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
@@ -26,20 +27,20 @@ import org.json.JSONException;
 import java.util.ArrayList;
 
 
-public class MovieFragment extends Fragment {
+public class GameFragment extends Fragment {
 
-    public ArrayList<MovieModel> marketMovies;
-    public RecyclerView movieRV;
-    MovieRecyclerAdapter movieAdapter;
-    LinearLayoutManager linearLayoutManager;
+    public ArrayList<GameModel> marketGames;
+    public RecyclerView recyclerView;
+    GameRecyclerAdapter adapter;
+    GridLayoutManager gridLayoutManager;
 
     //Volley
     private RequestQueue requestQueue;
     public static ArrayList<String> strList;
-    private String API_URL = "https://api.myjson.com/bins/lu5my";
+    private String API_URL = "https://api.myjson.com/bins/11wuyy";
 
 
-    public MovieFragment() {
+    public GameFragment() {
         // Required empty public constructor
     }
 
@@ -54,35 +55,36 @@ public class MovieFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_movie, container, false);
+        View v = inflater.inflate(R.layout.fragment_game, container, false);
 
         //Volley
         requestQueue = Volley.newRequestQueue(getActivity());
         strList = new ArrayList<>();
 
-        loadMovies();
+        loadGames();
 
-        marketMovies = new ArrayList<>();
-        movieRV = (RecyclerView) v.findViewById(R.id.movieRecyclerView);
+        // Main list that holds all the games cards Objects to convey them later to the RecyclerView
+        marketGames = new ArrayList<>();
+        recyclerView = (RecyclerView) v.findViewById(R.id.gameRecyclerView);
 
 
+        //Passing the full list to the RecyclerView adapter to show them,
+        // Passing the Activity context too letting the adapter know which Activity is calling in the whole App
+        adapter = new GameRecyclerAdapter(this.getActivity(), marketGames);
+        recyclerView.setAdapter(adapter);
 
-        movieAdapter = new MovieRecyclerAdapter(this.getActivity(), marketMovies);
-        movieRV.setAdapter(movieAdapter);
-
-        //Showing the RecyclerView Elements using the Linear Scheme, 1 Card in each row, propagating vertically,
+        //Showing the RecyclerView Elements using the GridView Scheme, 2 Cards in each row, propagating vertically,
         //Wrapping all passed cards with no limit
-        linearLayoutManager = new LinearLayoutManager(getActivity());
+        gridLayoutManager = new GridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false);
 
-        movieRV.setLayoutManager(linearLayoutManager);
+        recyclerView.setLayoutManager(gridLayoutManager);
 
-
-
-
+        
+        //Now, ShowTime... :)
         return v;
     }
 
-    private void loadMovies() {
+    private void loadGames() {
 
         StringRequest request = new StringRequest(Request.Method.GET, API_URL,
 
@@ -115,13 +117,13 @@ public class MovieFragment extends Fragment {
                             for (int i = 0; i < mainArray.length(); i++) {
                                 String mainStr = mainArray.get(i).toString();
                                 strList.add(mainStr);
-                                MovieModel movie = gson.fromJson(mainStr, MovieModel.class);
+                                GameModel game = gson.fromJson(mainStr, GameModel.class);
 
 
-                                Log.i("titles", movie.getMovieTitle());
+                                Log.i("urls", game.getImageRef());
 
 
-                                marketMovies.add(movie);
+                                marketGames.add(game);
                             }
 
 
@@ -131,7 +133,7 @@ public class MovieFragment extends Fragment {
 
 
                         //Notify the RecyclerView with the new data..
-                        movieAdapter.notifyDataSetChanged();
+                        adapter.notifyDataSetChanged();
 
                     }
                 }, new Response.ErrorListener()
@@ -147,8 +149,6 @@ public class MovieFragment extends Fragment {
         requestQueue.add(request);
 
     }
-
-
 
 
 

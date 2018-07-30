@@ -33,8 +33,7 @@
                     android:id="@+id/movieDetCoverImg"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/cod" />
+                    android:scaleType="centerCrop" />
 
                 <View
                     android:layout_width="match_parent"
@@ -51,7 +50,6 @@
                     android:layout_marginStart="14dp"
                     android:layout_marginTop="157dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/cod"
                     app:riv_border_color="#ffffff"
                     app:riv_border_width="2dip" />
 

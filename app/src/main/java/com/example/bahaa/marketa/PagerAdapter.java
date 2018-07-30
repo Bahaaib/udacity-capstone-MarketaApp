@@ -4,6 +4,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.example.bahaa.marketa.Books.BookFragment;
+import com.example.bahaa.marketa.Games.GameFragment;
+import com.example.bahaa.marketa.Movies.MovieFragment;
+
 /**
  * Created by Bahaa on 12/16/2017.
  */

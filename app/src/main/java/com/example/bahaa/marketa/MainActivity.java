@@ -1,6 +1,8 @@
 package com.example.bahaa.marketa;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -11,6 +13,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.example.bahaa.marketa.Checkout.CheckoutModel;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.ArrayList;
 
@@ -39,11 +44,27 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private NavigationView navigationView;
 
+    //Exit activity
+    private boolean backPressedTwice;
+    private Handler backHandler = new Handler();
+    private final Runnable backRunnable = new Runnable() {
+        @Override
+        public void run() {
+            backPressedTwice = false;
+        }
+    };
+    private Toast backPressToast;
+
+    //Firebase Analytics
+    private FirebaseAnalytics firebaseAnalytics;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         //Getting last value saved for static variables before destroying activity
         if (savedInstanceState != null) {
@@ -158,7 +179,27 @@ public class MainActivity extends AppCompatActivity {
         itemsList.clear();
         pricesList.clear();
 
-        super.onBackPressed();
+        //Plugging a handler to wait for 1 second before receiving a confirmation to destroy Activity
+        if (backPressedTwice) {
+            Intent exitIntent = new Intent(Intent.ACTION_MAIN);
+            exitIntent.addCategory(Intent.CATEGORY_HOME);
+            exitIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(exitIntent);
+
+        }
+        backPressedTwice = true;
+        //Prevent the toast from appearing twice
+        if (backPressToast != null) {
+            backPressToast.cancel();
+            backPressToast = null;
+        } else {
+            backPressToast = Toast.makeText(getApplicationContext(), R.string.backPressExit, Toast.LENGTH_SHORT);
+            backPressToast.show();
+        }
+        backHandler.postDelayed(backRunnable, 1000);
+
+
+        //super.onBackPressed();
 
     }
 
@@ -171,5 +212,14 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //Release the Handler and its runnable from the memory on Activity destruction
+        if (backHandler != null) {
+            backHandler.removeCallbacks(backRunnable);
+        }
+    }
 
 }

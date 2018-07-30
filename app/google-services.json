@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "713647643672",
+    "firebase_url": "https://marketa-300718.firebaseio.com",
+    "project_id": "marketa-300718",
+    "storage_bucket": "marketa-300718.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713647643672:android:91c5e3d9d9d5ae70",
+        "android_client_info": {
+          "package_name": "com.example.bahaa.marketa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713647643672-v07ksrlf1vk2qalljvaio6g93biknv88.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bahaa.marketa",
+            "certificate_hash": "cd0f466494fb5fbc2ec535b96261a5e742b9a077"
+          }
+        },
+        {
+          "client_id": "713647643672-vauml59ickis3ch7dsqlo3n5ggl3js49.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIamUzJdwbTsqZNB4ttz7rFA4Vm1_ECZY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713647643672-vauml59ickis3ch7dsqlo3n5ggl3js49.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
+import com.example.bahaa.marketa.Auth.LoginActivity;
+
 public class SplashScreen extends AppCompatActivity {
 
     ProgressBar progressBar;
@@ -60,7 +62,7 @@ public class SplashScreen extends AppCompatActivity {
         protected void onPostExecute(String result) {
 
             // Move to MainActivity once Progress Bar completed
-            Intent mainIntent = new Intent(SplashScreen.this, MainActivity.class)
+            Intent mainIntent = new Intent(SplashScreen.this, LoginActivity.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(mainIntent);

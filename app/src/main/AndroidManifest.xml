@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.bahaa.marketa">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.example.bahaa.marketa.SplashScreen"
+            android:name=".SplashScreen"
             android:label="Marketa Gallery"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -21,20 +22,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.bahaa.marketa.GameDetailsActivity"
+            android:name=".Games.GameDetailsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.bahaa.marketa.CheckoutActivity"
+            android:name=".Checkout.CheckoutActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.bahaa.marketa.BookDetailsActivity"
+            android:name=".Books.BookDetailsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.bahaa.marketa.MovieDetailsActivity"
+            android:name=".Movies.MovieDetailsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.bahaa.marketa.MainActivity"
+            android:name=".MainActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".Auth.LoginActivity" />
+        <activity android:name=".Auth.SignupActivity"></activity>
     </application>
 
 </manifest>

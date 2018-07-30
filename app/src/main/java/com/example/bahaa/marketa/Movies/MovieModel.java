@@ -1,4 +1,4 @@
-package com.example.bahaa.marketa;
+package com.example.bahaa.marketa.Movies;
 
 import com.google.gson.annotations.SerializedName;
 

@@ -1,4 +1,4 @@
-package com.example.bahaa.marketa;
+package com.example.bahaa.marketa.Movies;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -30,35 +30,38 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bahaa.marketa.Checkout.CheckoutActivity;
+import com.example.bahaa.marketa.Checkout.CheckoutModel;
+import com.example.bahaa.marketa.MainActivity;
+import com.example.bahaa.marketa.R;
 import com.squareup.picasso.Picasso;
 
 import static com.example.bahaa.marketa.MainActivity.itemsList;
 
 
-public class BookDetailsActivity extends AppCompatActivity {
+public class MovieDetailsActivity extends AppCompatActivity {
 
-    public ImageView bookCoverImg;
-    public CardView bookDetailsCard;
-    public TextView summary;
-    public TextView bookCart;
+    public ImageView movieCoverImg;
+    public CardView movieDetailsCard;
+    public TextView moviePlot;
+    public TextView movieCart;
     public PopupWindow popWindow;
 
     public EditText quantity, voucher;
     public TextView proceed;
 
-    public Float bookPrice = 0.0f;
+    public Float moviePrice = 0.0f;
 
     public Integer itemQty = 1;
 
-    public Float bookFinalPrice;
+    public Float movieFinalPrice;
 
     public String voucherStr;
 
     public Float disFactor;
 
-    Context context = BookDetailsActivity.this;
+    Context context = MovieDetailsActivity.this;
 
-    Snackbar snackbar;
 
     RelativeLayout relativeLayout;
 
@@ -71,46 +74,46 @@ public class BookDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_details);
+        setContentView(R.layout.activity_movie_details);
 
         relativeLayout = (RelativeLayout) findViewById(R.id.detRelativeLayout);
         final Intent intent = getIntent();
 
-        bookCoverImg = (ImageView) findViewById(R.id.movieDetCoverImg);
-        bookDetailsCard = (CardView) findViewById(R.id.bookdetailsCard);
+        movieCoverImg = (ImageView) findViewById(R.id.movieDetCoverImg);
+        movieDetailsCard = (CardView) findViewById(R.id.movieDetailsCard);
 
 
-        bookCart = (TextView) findViewById(R.id.bookCart);
-        summary = (TextView) findViewById(R.id.bookSummary);
+        movieCart = (TextView) findViewById(R.id.movieCart);
+        moviePlot = (TextView) findViewById(R.id.moviePlot);
 
 
         AnimatorSet animationSet = new AnimatorSet();
 
 //Translating Details_Card in Y Scale
-        ObjectAnimator bookCard = ObjectAnimator.ofFloat(bookDetailsCard, View.TRANSLATION_Y, 70);
-        bookCard.setDuration(2500);
-        bookCard.setRepeatMode(ValueAnimator.REVERSE);
-        bookCard.setRepeatCount(ValueAnimator.INFINITE);
-        bookCard.setInterpolator(new LinearInterpolator());
+        ObjectAnimator movieCard = ObjectAnimator.ofFloat(movieDetailsCard, View.TRANSLATION_Y, 70);
+        movieCard.setDuration(2500);
+        movieCard.setRepeatMode(ValueAnimator.REVERSE);
+        movieCard.setRepeatCount(ValueAnimator.INFINITE);
+        movieCard.setInterpolator(new LinearInterpolator());
 
 
-        animationSet.play(bookCard);
+        animationSet.play(movieCard);
         animationSet.start();
 
         Picasso.with(context)
-                .load(intent.getStringExtra("bookCoverImg"))
-                .into(bookCoverImg);
+                .load(intent.getStringExtra("movieCoverImg"))
+                .into(movieCoverImg);
+        moviePlot.setText(intent.getStringExtra("moviePlot"));
 
-        summary.setText(intent.getStringExtra("bookSummary"));
 
-
-        bookCart.setOnClickListener(new View.OnClickListener() {
+        movieCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 onShowPopup(view);
             }
         });
+
 
         //Navigation Drawer
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -128,14 +131,14 @@ public class BookDetailsActivity extends AppCompatActivity {
                 Intent drawerIntent;
                 switch (id) {
                     case R.id.home:
-                        drawerIntent = new Intent(BookDetailsActivity.this, MainActivity.class);
+                        drawerIntent = new Intent(MovieDetailsActivity.this, MainActivity.class);
                         startActivity(drawerIntent);
                         return true;
                     case R.id.about:
-                        Toast.makeText(BookDetailsActivity.this, "About", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MovieDetailsActivity.this, "About", Toast.LENGTH_LONG).show();
                         return true;
                     case R.id.credit:
-                        Toast.makeText(BookDetailsActivity.this, "Credit", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MovieDetailsActivity.this, "Credit", Toast.LENGTH_LONG).show();
                         return true;
                     default:
                         return true;
@@ -145,6 +148,7 @@ public class BookDetailsActivity extends AppCompatActivity {
 
 
     }
+
 
     //Here We describe everything about the Popup Window
     //Also declaring all its views here, NOTE: Not in the Activity above; They have different contexts!
@@ -163,7 +167,8 @@ public class BookDetailsActivity extends AppCompatActivity {
         proceed = (TextView) inflatedView.findViewById(R.id.proceed);
 
 
-        bookPrice = getIntent().getFloatExtra("bookPrice", 0);
+
+        moviePrice = getIntent().getFloatExtra("moviePrice", 0);
 
 
         //Get device size
@@ -196,7 +201,7 @@ public class BookDetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 boolean validCoupon, validQty;
-                Intent checkoutIntent = new Intent(BookDetailsActivity.this, CheckoutActivity.class);
+                Intent checkoutIntent = new Intent(MovieDetailsActivity.this, CheckoutActivity.class);
 
                 //Find out the user input in Quantity field considering the input is 0 if left blank
                 try {
@@ -205,7 +210,7 @@ public class BookDetailsActivity extends AppCompatActivity {
                 } catch (NumberFormatException e) {
                     itemQty = 0;
                 }
-                bookFinalPrice = bookPrice * itemQty;
+                movieFinalPrice = moviePrice * itemQty;
 
                 voucher = (EditText) inflatedView.findViewById(R.id.voucher);
                 voucherStr = voucher.getText().toString();
@@ -231,7 +236,6 @@ public class BookDetailsActivity extends AppCompatActivity {
                 } else {
                     validQty = true;
                 }
-
                 //Showing the snackbar upon the above fields states..
                 if (!validQty && !validCoupon) {
                     createSnackbar("INVALID DATA IN BOTH FIELDS");
@@ -245,15 +249,15 @@ public class BookDetailsActivity extends AppCompatActivity {
                 //Freeze the Popup window preventing it from moving to checkout if any field input is invalid!
                 if (validCoupon && validQty) {
                     CheckoutModel model = new CheckoutModel();
-                    model.setCheckImg(getIntent().getIntExtra("bookCoverImg", 1));
-                    model.setCheckTitle(getIntent().getStringExtra("bookTitle"));
+                    model.setCheckImg(getIntent().getIntExtra("movieSmallImg", 1));
+                    model.setCheckTitle(getIntent().getStringExtra("movieTitle"));
                     model.setCheckQty(itemQty);
 
 
                     itemsList.add(model);
 
                     checkoutIntent.putExtra("itemList", itemsList);
-                    checkoutIntent.putExtra("bookFinalPrice", bookFinalPrice);
+                    checkoutIntent.putExtra("movieFinalPrice", movieFinalPrice);
                     checkoutIntent.putExtra("vCoupon", disFactor);
 
                     startActivity(checkoutIntent);
@@ -262,7 +266,9 @@ public class BookDetailsActivity extends AppCompatActivity {
 
             }
         });
+
     }
+
     //Snackbar Structure
     public void createSnackbar(String message) {
         Snackbar snackbar = Snackbar.make(relativeLayout, message, Snackbar.LENGTH_LONG);
@@ -272,4 +278,5 @@ public class BookDetailsActivity extends AppCompatActivity {
         snackbar.show();
 
     }
+
 }

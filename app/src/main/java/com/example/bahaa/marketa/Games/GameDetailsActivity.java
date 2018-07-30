@@ -1,4 +1,4 @@
-package com.example.bahaa.marketa;
+package com.example.bahaa.marketa.Games;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -30,6 +30,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bahaa.marketa.Checkout.CheckoutActivity;
+import com.example.bahaa.marketa.Checkout.CheckoutModel;
+import com.example.bahaa.marketa.MainActivity;
+import com.example.bahaa.marketa.R;
 import com.squareup.picasso.Picasso;
 
 import static com.example.bahaa.marketa.MainActivity.itemsList;

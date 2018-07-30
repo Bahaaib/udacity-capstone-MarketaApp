@@ -1,4 +1,4 @@
-package com.example.bahaa.marketa;
+package com.example.bahaa.marketa.Checkout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,8 +15,11 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static com.example.bahaa.marketa.CheckoutRecyclerAdapter.isRemoved;
-import static com.example.bahaa.marketa.CheckoutRecyclerAdapter.removePos;
+import com.example.bahaa.marketa.MainActivity;
+import com.example.bahaa.marketa.R;
+
+import static com.example.bahaa.marketa.Checkout.CheckoutRecyclerAdapter.isRemoved;
+import static com.example.bahaa.marketa.Checkout.CheckoutRecyclerAdapter.removePos;
 import static com.example.bahaa.marketa.MainActivity.discount;
 import static com.example.bahaa.marketa.MainActivity.grandTotal;
 import static com.example.bahaa.marketa.MainActivity.itemsList;
