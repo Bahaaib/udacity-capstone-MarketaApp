@@ -5,10 +5,7 @@
 
     <!-- TODO: Main Activity -->
     <string name="backPressExit">Press Back again to exit</string>
-
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="main_action_bar">Gallery</string>
     <string name="Open">open</string>
     <string name="Close">close</string>
 
@@ -36,6 +33,26 @@
     <string name="signUpDataProblem">One or more fields are incorrect</string>
     <string name="invalidForm">Invalid Mail Form</string>
     <string name="invalidUsername">Invalid Username</string>
+
+    <!-- TODO: About Activity -->
+    <string name="about_header">Marketa App</string>
+    <string name="about_details">The App provides an online entertainment store experience,
+        similar to Google Play but targeting only specific entertainment types (Books, Games, and Movies).
+        The products will be stored in a firebase real time database and provided to the app dynamically.
+        The app will provide the users with a detailed product description and allow them to get a good overview
+        before proceeding to any purchase.The users will have the chance to use this application in multiple devices,
+        as it will allow them to login via firebase andwill then sync all their data across all of their devices.</string>
+    <string name="about_action_bar">About</string>
+
+    <!-- TODO: Credit Activity -->
+    <string name="credit_details"><![CDATA[Junior Android developer with +3 years of Apps development \n
+     Computer Engineer \n Life-long leaner & builder.]]></string>
+    <string name="credit_action_bar">Credit</string>
+
+
+    <!-- TODO: Checkout Activity -->
+    <string name="shopping_cart">Shopping Cart</string>
+    <string name="developer_name">Bahaa Ibrahim</string>
 
 
 </resources>

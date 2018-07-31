@@ -15,6 +15,7 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
         <activity
             android:name=".SplashScreen"
             android:label="Marketa Gallery"
@@ -30,7 +31,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Checkout.CheckoutActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/checkoutActivity" />
         <activity
             android:name=".Books.BookDetailsActivity"
             android:screenOrientation="portrait" />
@@ -41,12 +43,17 @@
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".Auth.LoginActivity" />
-        <activity android:name=".Auth.SignupActivity"></activity>
-
+        <activity android:name=".Auth.SignupActivity" />
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name=".AboutActivity"
+            android:theme="@style/aboutActivity" />
+        <activity
+            android:name=".CreditActivity"
+            android:theme="@style/aboutActivity"></activity>
     </application>
 
 </manifest>

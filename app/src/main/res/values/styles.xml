@@ -13,22 +13,23 @@
 
     </style>
 
-        <!-- PopuP Enter Exit Animation -->
-        <style name="PopupAnimation" parent="Widget.AppCompat.PopupWindow">
-            <item name="android:windowEnterAnimation">@anim/bottom_up</item>
-            <item name="android:windowExitAnimation">@anim/bottom_down</item>
-        </style>
+    <!-- PopuP Enter Exit Animation -->
+    <style name="PopupAnimation" parent="Widget.AppCompat.PopupWindow">
+        <item name="android:windowEnterAnimation">@anim/bottom_up</item>
+        <item name="android:windowExitAnimation">@anim/bottom_down</item>
+    </style>
 
-    <style name="checkoutActivity" parent="Theme.AppCompat.Light.DarkActionBar"/>
+    <style name="checkoutActivity" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>/>
+    </style>
 
-
-
-
-
-
-
-
-
+    <style name="aboutActivity" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>/>
+    </style>
 
 
 </resources>

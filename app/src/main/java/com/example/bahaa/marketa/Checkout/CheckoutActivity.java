@@ -13,9 +13,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.bahaa.marketa.AboutActivity;
 import com.example.bahaa.marketa.Auth.LoginActivity;
+import com.example.bahaa.marketa.CreditActivity;
 import com.example.bahaa.marketa.MainActivity;
 import com.example.bahaa.marketa.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,8 +32,6 @@ import static com.example.bahaa.marketa.MainActivity.subTotal;
 
 public class CheckoutActivity extends AppCompatActivity {
 
-
-    ;
     public RecyclerView checkuotRV;
     public CheckoutRecyclerAdapter checkoutAdapter;
     public LinearLayoutManager linearLayoutManager;
@@ -154,6 +153,9 @@ public class CheckoutActivity extends AppCompatActivity {
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.Open, R.string.Close);
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(R.string.shopping_cart);
         actionBarDrawerToggle.syncState();
 
         navigationView = (NavigationView) findViewById(R.id.nv);
@@ -169,10 +171,10 @@ public class CheckoutActivity extends AppCompatActivity {
                         startActivity(drawerIntent);
                         return true;
                     case R.id.about:
-                        Toast.makeText(CheckoutActivity.this, "About", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(CheckoutActivity.this, AboutActivity.class));
                         return true;
                     case R.id.credit:
-                        Toast.makeText(CheckoutActivity.this, "Credit", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(CheckoutActivity.this, CreditActivity.class));
                         return true;
                     case R.id.logout:
                         mAuth.signOut();
@@ -186,6 +188,14 @@ public class CheckoutActivity extends AppCompatActivity {
 
 
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (actionBarDrawerToggle.onOptionsItemSelected(item))
+            return true;
+
+        return super.onOptionsItemSelected(item);
     }
 
     // Return back to MainActivity on Back Pressed,

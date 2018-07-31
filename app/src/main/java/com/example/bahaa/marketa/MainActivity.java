@@ -135,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
         actionBarDrawerToggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(R.string.main_action_bar);
 
         navigationView = (NavigationView) findViewById(R.id.nv);
 
@@ -147,10 +148,10 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "You're Already in Home", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.about:
-                        Toast.makeText(MainActivity.this, "About", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainActivity.this, AboutActivity.class));
                         return true;
                     case R.id.credit:
-                        Toast.makeText(MainActivity.this, "Credit", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainActivity.this, CreditActivity.class));
                         return true;
                     case R.id.logout:
                         mAuth.signOut();

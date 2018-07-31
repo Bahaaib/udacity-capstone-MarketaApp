@@ -29,11 +29,12 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.bahaa.marketa.AboutActivity;
 import com.example.bahaa.marketa.Auth.LoginActivity;
 import com.example.bahaa.marketa.Checkout.CheckoutActivity;
 import com.example.bahaa.marketa.Checkout.CheckoutModel;
+import com.example.bahaa.marketa.CreditActivity;
 import com.example.bahaa.marketa.MainActivity;
 import com.example.bahaa.marketa.R;
 import com.google.android.gms.ads.AdRequest;
@@ -176,10 +177,10 @@ public class GameDetailsActivity extends AppCompatActivity {
                         startActivity(drawerIntent);
                         return true;
                     case R.id.about:
-                        Toast.makeText(GameDetailsActivity.this, "About", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(GameDetailsActivity.this, AboutActivity.class));
                         return true;
                     case R.id.credit:
-                        Toast.makeText(GameDetailsActivity.this, "Credit", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(GameDetailsActivity.this, CreditActivity.class));
                         return true;
                     case R.id.logout:
                         mAuth.signOut();
