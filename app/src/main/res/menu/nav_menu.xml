@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/home"
-        android:icon="@drawable/ic_home"
-        android:title="Home"/>
-    <item android:id="@+id/about"
-        android:icon="@drawable/ic_info"
-        android:title="About"/>
-    <item android:id="@+id/credit"
-        android:icon="@drawable/ic_credit"
-        android:title="Credit"/>
+    <group
+        android:id="@+id/main_grp"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/ic_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/about"
+            android:icon="@drawable/ic_info"
+            android:title="About" />
+        <item
+            android:id="@+id/credit"
+            android:icon="@drawable/ic_credit"
+            android:title="Credit" />
+
+    </group>
+
+    <group
+        android:id="@+id/auth_grp"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/ic_logout"
+            android:title="Logout" />
+    </group>
+
 
 </menu>

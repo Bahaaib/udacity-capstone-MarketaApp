@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -30,10 +31,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bahaa.marketa.Auth.LoginActivity;
 import com.example.bahaa.marketa.Checkout.CheckoutActivity;
 import com.example.bahaa.marketa.Checkout.CheckoutModel;
 import com.example.bahaa.marketa.MainActivity;
 import com.example.bahaa.marketa.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
 import static com.example.bahaa.marketa.MainActivity.itemsList;
@@ -69,11 +74,25 @@ public class GameDetailsActivity extends AppCompatActivity {
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private NavigationView navigationView;
 
+    //Firebase Auth
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+
+    //AdMob
+    private String DEVICE_ID;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_details);
+
+        //Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+
+        //AdMob
+        DEVICE_ID = Settings.Secure.getString(this.getContentResolver(),
+                Settings.Secure.ANDROID_ID);
 
         //Assigning all our objects to their corresponding views..
         relativeLayout = (RelativeLayout) findViewById(R.id.detRelativeLayout);
@@ -90,7 +109,6 @@ public class GameDetailsActivity extends AppCompatActivity {
         platform = (TextView) findViewById(R.id.txtPlatform);
 
         gameCart = (TextView) findViewById(R.id.gameCart);
-
 
 
         //Starting card Animation Setup
@@ -163,11 +181,18 @@ public class GameDetailsActivity extends AppCompatActivity {
                     case R.id.credit:
                         Toast.makeText(GameDetailsActivity.this, "Credit", Toast.LENGTH_LONG).show();
                         return true;
+                    case R.id.logout:
+                        mAuth.signOut();
+                        updateUI();
+                        return true;
                     default:
                         return true;
                 }
             }
         });
+
+        //Launch AdMob
+        adView();
 
 
     }
@@ -265,11 +290,11 @@ public class GameDetailsActivity extends AppCompatActivity {
 
                 } else if (!validQty) {
                     createSnackbar("NOT ALLOWED LESS THAN 1 PRODUCT");
-                } else if (!validCoupon && validQty){
+                } else if (!validCoupon && validQty) {
                     createSnackbar("COUPON MAY BE INVALID OR OUTDATED");
                 }
 
-               //Freeze the Popup window preventing it from moving to checkout if any field input is invalid!
+                //Freeze the Popup window preventing it from moving to checkout if any field input is invalid!
                 if (validCoupon && validQty) {
                     CheckoutModel model = new CheckoutModel();
                     model.setCheckImg(getIntent().getIntExtra("smallImg", 1));
@@ -302,5 +327,24 @@ public class GameDetailsActivity extends AppCompatActivity {
         snackbarText.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary));
         snackbar.show();
 
+    }
+
+    //if user logged out, destroy the Activity with no way back immediately..
+    public void updateUI() {
+        if (mAuth.getCurrentUser() == null) {
+            Intent intent = new Intent(GameDetailsActivity.this, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
+        }
+    }
+
+    public void adView() {
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(DEVICE_ID)
+                .build();
+        mAdView.loadAd(adRequest);
     }
 }

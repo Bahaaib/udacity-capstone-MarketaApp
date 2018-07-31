@@ -17,7 +17,7 @@
         <android.support.design.widget.AppBarLayout
             android:id="@+id/appBar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
+            android:layout_height="?android:attr/actionBarSize">
 
             <TextView
                 android:layout_width="match_parent"

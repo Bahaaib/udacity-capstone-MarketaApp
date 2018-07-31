@@ -15,8 +15,10 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bahaa.marketa.Auth.LoginActivity;
 import com.example.bahaa.marketa.MainActivity;
 import com.example.bahaa.marketa.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 import static com.example.bahaa.marketa.Checkout.CheckoutRecyclerAdapter.isRemoved;
 import static com.example.bahaa.marketa.Checkout.CheckoutRecyclerAdapter.removePos;
@@ -48,11 +50,18 @@ public class CheckoutActivity extends AppCompatActivity {
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private NavigationView navigationView;
 
+    //Firebase Auth
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
+
+        //Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
         //Assigning all used objects to their views
         updateRefresher = (SwipeRefreshLayout) findViewById(R.id.updateRefresher);
@@ -165,6 +174,10 @@ public class CheckoutActivity extends AppCompatActivity {
                     case R.id.credit:
                         Toast.makeText(CheckoutActivity.this, "Credit", Toast.LENGTH_LONG).show();
                         return true;
+                    case R.id.logout:
+                        mAuth.signOut();
+                        updateUI();
+                        return true;
                     default:
                         return true;
                 }
@@ -183,5 +196,15 @@ public class CheckoutActivity extends AppCompatActivity {
         homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(homeIntent);
         super.onBackPressed();
+    }
+
+    //if user logged out, destroy the Activity with no way back immediately..
+    public void updateUI() {
+        if (mAuth.getCurrentUser() == null) {
+            Intent intent = new Intent(CheckoutActivity.this, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
+        }
     }
 }

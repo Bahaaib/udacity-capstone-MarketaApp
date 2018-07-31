@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -30,10 +31,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bahaa.marketa.Auth.LoginActivity;
 import com.example.bahaa.marketa.Checkout.CheckoutActivity;
 import com.example.bahaa.marketa.Checkout.CheckoutModel;
 import com.example.bahaa.marketa.MainActivity;
 import com.example.bahaa.marketa.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
 import static com.example.bahaa.marketa.MainActivity.itemsList;
@@ -71,11 +76,24 @@ public class BookDetailsActivity extends AppCompatActivity {
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private NavigationView navigationView;
 
+    //Firebase Auth
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+
+    //AdMob
+    private String DEVICE_ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_details);
+
+        //Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+
+        //AdMob
+        DEVICE_ID = Settings.Secure.getString(this.getContentResolver(),
+                Settings.Secure.ANDROID_ID);
 
         relativeLayout = (RelativeLayout) findViewById(R.id.detRelativeLayout);
         final Intent intent = getIntent();
@@ -90,7 +108,7 @@ public class BookDetailsActivity extends AppCompatActivity {
 
         AnimatorSet animationSet = new AnimatorSet();
 
-//Translating Details_Card in Y Scale
+        //Translating Card in Y Scale
         ObjectAnimator bookCard = ObjectAnimator.ofFloat(bookDetailsCard, View.TRANSLATION_Y, 70);
         bookCard.setDuration(2500);
         bookCard.setRepeatMode(ValueAnimator.REVERSE);
@@ -107,7 +125,7 @@ public class BookDetailsActivity extends AppCompatActivity {
 
         summary.setText(intent.getStringExtra("bookSummary"));
 
-
+        //Poping up the Purchasing info Window on clicking the text..
         bookCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -141,11 +159,18 @@ public class BookDetailsActivity extends AppCompatActivity {
                     case R.id.credit:
                         Toast.makeText(BookDetailsActivity.this, "Credit", Toast.LENGTH_LONG).show();
                         return true;
+                    case R.id.logout:
+                        mAuth.signOut();
+                        updateUI();
+                        return true;
                     default:
                         return true;
                 }
             }
         });
+
+        //Launch AdMob
+        adView();
 
 
     }
@@ -242,7 +267,7 @@ public class BookDetailsActivity extends AppCompatActivity {
 
                 } else if (!validQty) {
                     createSnackbar("NOT ALLOWED LESS THAN 1 PRODUCT");
-                } else if (!validCoupon && validQty){
+                } else if (!validCoupon && validQty) {
                     createSnackbar("COUPON MAY BE INVALID OR OUTDATED");
                 }
 
@@ -267,6 +292,7 @@ public class BookDetailsActivity extends AppCompatActivity {
             }
         });
     }
+
     //Snackbar Structure
     public void createSnackbar(String message) {
         Snackbar snackbar = Snackbar.make(relativeLayout, message, Snackbar.LENGTH_LONG);
@@ -275,5 +301,24 @@ public class BookDetailsActivity extends AppCompatActivity {
         snackbarText.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary));
         snackbar.show();
 
+    }
+
+    //if user logged out, destroy the Activity with no way back immediately..
+    public void updateUI() {
+        if (mAuth.getCurrentUser() == null) {
+            Intent intent = new Intent(BookDetailsActivity.this, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
+        }
+    }
+
+    public void adView() {
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(DEVICE_ID)
+                .build();
+        mAdView.loadAd(adRequest);
     }
 }

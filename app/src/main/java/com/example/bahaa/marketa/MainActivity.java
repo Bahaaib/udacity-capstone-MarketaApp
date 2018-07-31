@@ -14,8 +14,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.bahaa.marketa.Auth.LoginActivity;
 import com.example.bahaa.marketa.Checkout.CheckoutModel;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -58,13 +60,21 @@ public class MainActivity extends AppCompatActivity {
     //Firebase Analytics
     private FirebaseAnalytics firebaseAnalytics;
 
+    //Firebase Auth
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Firebase Analytics
         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+        //Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
         //Getting last value saved for static variables before destroying activity
         if (savedInstanceState != null) {
@@ -142,6 +152,10 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.credit:
                         Toast.makeText(MainActivity.this, "Credit", Toast.LENGTH_SHORT).show();
                         return true;
+                    case R.id.logout:
+                        mAuth.signOut();
+                        updateUI();
+                        return true;
                     default:
                         return true;
                 }
@@ -198,15 +212,12 @@ public class MainActivity extends AppCompatActivity {
         }
         backHandler.postDelayed(backRunnable, 1000);
 
-
-        //super.onBackPressed();
-
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if(actionBarDrawerToggle.onOptionsItemSelected(item))
+        if (actionBarDrawerToggle.onOptionsItemSelected(item))
             return true;
 
         return super.onOptionsItemSelected(item);
@@ -219,6 +230,16 @@ public class MainActivity extends AppCompatActivity {
         //Release the Handler and its runnable from the memory on Activity destruction
         if (backHandler != null) {
             backHandler.removeCallbacks(backRunnable);
+        }
+    }
+
+    //if user logged out, destroy the MainActivity with no way back immediately..
+    public void updateUI() {
+        if (mAuth.getCurrentUser() == null) {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
         }
     }
 
