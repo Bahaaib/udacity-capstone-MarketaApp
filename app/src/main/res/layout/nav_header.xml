@@ -7,10 +7,10 @@
     android:background="@color/colorPrimaryDark">
 
     <ImageView
-    android:layout_width="180dp"
-    android:layout_height="130dp"
-    android:layout_marginBottom="15dp"
-    android:layout_marginTop="15dp"
+    android:layout_width="@dimen/navheadimg_width"
+    android:layout_height="@dimen/navheadimg_height"
+    android:layout_marginBottom="@dimen/navheadimg_margin_bottom"
+    android:layout_marginTop="@dimen/navheadimg_margin_top"
     android:background="@drawable/marketa_logo"/>
 
 </LinearLayout>

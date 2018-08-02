@@ -8,6 +8,7 @@
     <string name="main_action_bar">Gallery</string>
     <string name="Open">open</string>
     <string name="Close">close</string>
+    <string name="home_toast">You\'re Already in Home</string>
 
 
     <!-- TODO: Login Activity -->
@@ -53,6 +54,52 @@
     <!-- TODO: Checkout Activity -->
     <string name="shopping_cart">Shopping Cart</string>
     <string name="developer_name">Bahaa Ibrahim</string>
+    <string name="subtotal">Subtotal:</string>
+    <string name="discount">Discount:</string>
+    <string name="grand_total">Grand Total:</string>
+    <string name="order_now">ORDER NOW!</string>
+    <string name="item_removed_toast">Item Removed!</string>
+
+    <!-- TODO: Book Details Activity -->
+    <string name="transition_name">selectedMovie</string>
+    <string name="book_summary">Summary:</string>
+    <string name="add_book_to_cart">ADD TO CART</string>
+    <string name="voucher_off50">OFF50</string>
+    <string name="voucher_off25">OFF25</string>
+    <string name="snack_invalid">INVALID DATA IN BOTH FIELDS</string>
+    <string name="snack_qty">NOT ALLOWED LESS THAN 1 PRODUCT</string>
+    <string name="snack_outdate">COUPON MAY BE INVALID OR OUTDATED</string>
+
+    <!-- TODO: Book Fragment -->
+    <string name="book_api_url">https://api.myjson.com/bins/14cqju</string>
+
+
+    <!-- TODO: Game Details Activity -->
+    <string name="add_game_to_cart">ADD TO CART</string>
+
+    <!-- TODO: Movie Details Activity -->
+    <string name="movie_plot">Plot:</string>
+    <string name="add_movie_to_cart">ADD TO CART</string>
+
+    <!-- TODO: Book Card -->
+    <string name="book_transition">selectedBook</string>
+
+    <!-- TODO: Movie Card -->
+    <string name="movie_transition">selectedMovie</string>
+
+    <!-- TODO: Popup Window -->
+    <string name="pop_purchasing_info">Purchasing Info</string>
+    <string name="pop_qty_txt">Quantity:</string>
+    <string name="pop_voucher_txt">Voucher Coupon:</string>
+    <string name="pop_proceed">PROCEED TO CHECKOUT</string>
+    <string name="popqty_num">1</string>
+
+
+    <!-- TODO: Splash Screen -->
+    <string name="splash_app_name">MARKETA</string>
+    <string name="splashbanner_txt">Your Home of Entertainment</string>
+    <string name="game_api_url">https://api.myjson.com/bins/11wuyy</string>
+    <string name="movie_api_url">https://api.myjson.com/bins/lu5my</string>
 
 
 </resources>

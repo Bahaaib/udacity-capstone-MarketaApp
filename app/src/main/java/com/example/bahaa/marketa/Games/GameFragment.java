@@ -37,7 +37,7 @@ public class GameFragment extends Fragment {
     //Volley
     private RequestQueue requestQueue;
     public static ArrayList<String> strList;
-    private String API_URL = "https://api.myjson.com/bins/11wuyy";
+    private String API_URL;
 
 
     public GameFragment() {
@@ -48,6 +48,9 @@ public class GameFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        API_URL = getActivity().getResources().getString(R.string.game_api_url);
+
 
     }
 
@@ -79,7 +82,7 @@ public class GameFragment extends Fragment {
 
         recyclerView.setLayoutManager(gridLayoutManager);
 
-        
+
         //Now, ShowTime... :)
         return v;
     }
@@ -111,7 +114,6 @@ public class GameFragment extends Fragment {
 
                         try {
                             JSONArray mainArray = new JSONArray(response);
-
 
 
                             for (int i = 0; i < mainArray.length(); i++) {
@@ -149,7 +151,6 @@ public class GameFragment extends Fragment {
         requestQueue.add(request);
 
     }
-
 
 
 }

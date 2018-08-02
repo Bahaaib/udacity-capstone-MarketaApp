@@ -12,10 +12,10 @@
     <android.support.v7.widget.CardView
         android:id="@+id/bookCardView"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        card_view:cardCornerRadius="0dp"
-        card_view:cardElevation="8dp"
-        card_view:cardMaxElevation="8dp">
+        android:layout_height="@dimen/bookcardview_height"
+        card_view:cardCornerRadius="@dimen/bookcardview_corner_rad"
+        card_view:cardElevation="@dimen/bookcardview_elev"
+        card_view:cardMaxElevation="@dimen/bookcardview_max_elev">
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -29,51 +29,48 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:scaleType="fitXY"
-                android:transitionName="selectedBook"/>
+                android:transitionName="@string/book_transition" />
 
 
             <View
                 android:id="@+id/vw_blacklayer"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginTop="150dp"
+                android:layout_height="@dimen/blacklayer_height"
+                android:layout_marginTop="@dimen/blacklayer_margin_top"
                 android:alpha="0.8"
-                android:background="#000000" />
+                android:background="@color/colorBlack" />
 
 
             <TextView
                 android:id="@+id/bookCardTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="160dp"
+                android:layout_marginLeft="@dimen/bookcardtitle_margin_left"
+                android:layout_marginTop="@dimen/bookcardtitle_margin_top"
                 android:fontFamily="sans-serif-condensed"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:text="test"/>
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/bookcardtitle_txt_size" />
 
 
             <TextView
                 android:id="@+id/bookAuthor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="200dp"
+                android:layout_marginLeft="@dimen/bookauthor_margin_left"
+                android:layout_marginTop="@dimen/bookauthor_margin_top"
                 android:fontFamily="sans-serif-medium"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp"
-                android:text="test"/>
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/bookauthor_txt_size" />
 
             <TextView
                 android:id="@+id/bookPriceValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="220dp"
+                android:layout_marginLeft="@dimen/bookprice_margin_left"
+                android:layout_marginTop="@dimen/bookprice_margin_top"
                 android:fontFamily="sans-serif"
                 android:textColor="@color/colorPrimary"
-                android:textSize="12sp"
-                android:text="test"/>
+                android:textSize="@dimen/bookprice_txt_size" />
 
 
         </FrameLayout>

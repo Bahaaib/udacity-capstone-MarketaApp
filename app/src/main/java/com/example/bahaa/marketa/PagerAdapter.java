@@ -26,14 +26,11 @@ public class PagerAdapter extends FragmentStatePagerAdapter{
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                GameFragment gameFragment = new GameFragment();
-                return gameFragment;
+                return new GameFragment();
             case 1:
-                MovieFragment movieFragment = new MovieFragment();
-                return movieFragment;
+                return new MovieFragment();
             case 2:
-                BookFragment bookFragment = new BookFragment();
-                return bookFragment;
+                return new BookFragment();
             default:
                 return null;
         }

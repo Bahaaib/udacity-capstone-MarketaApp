@@ -37,7 +37,7 @@ public class MovieFragment extends Fragment {
     //Volley
     private RequestQueue requestQueue;
     public static ArrayList<String> strList;
-    private String API_URL = "https://api.myjson.com/bins/lu5my";
+    private String API_URL;
 
 
     public MovieFragment() {
@@ -48,6 +48,9 @@ public class MovieFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        API_URL = getContext().getResources().getString(R.string.movie_api_url);
+
 
     }
 

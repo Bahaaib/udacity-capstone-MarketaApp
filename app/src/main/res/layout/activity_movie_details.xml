@@ -17,12 +17,12 @@
         <android.support.v7.widget.CardView
             android:id="@+id/movieDetailsCard"
             android:layout_width="match_parent"
-            android:layout_height="480dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_height="@dimen/mov_detcard_width"
+            android:layout_marginLeft="@dimen/mov_detcard_margin_left"
+            android:layout_marginRight="@dimen/mov_detcard_margin_right"
             android:alpha="0.8"
-            android:elevation="4dp"
-            card_view:cardCornerRadius="8dp">
+            android:elevation="@dimen/mov_detcard_elev"
+            card_view:cardCornerRadius="@dimen/mov_detcard_border_rad">
 
             <RelativeLayout
                 android:id="@+id/relLayout"
@@ -32,40 +32,40 @@
                 <ImageView
                     android:id="@+id/movieDetCoverImg"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_height="@dimen/mov_detcardimg_height"
                     android:scaleType="centerCrop"
-                    android:transitionName="selectedMovie" />
+                    android:transitionName="@string/transition_name" />
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_height="@dimen/mov_spacebar_height"
                     android:alpha="0.3"
-                    android:background="#000000" />
+                    android:background="@color/colorBlack" />
 
                 <TextView
                     android:id="@+id/movieTxtPlot"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="260dp"
+                    android:layout_marginLeft="@dimen/movplottxt_margin_left"
+                    android:layout_marginTop="@dimen/movplottxt_margin_top"
                     android:fontFamily="sans-serif"
                     android:maxLines="1"
-                    android:text=" Plot: "
+                    android:text="@string/movie_plot"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/movplottxt_txt_size"
                     android:visibility="visible" />
 
                 <TextView
                     android:id="@+id/moviePlot"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="290dp"
+                    android:layout_marginLeft="@dimen/movplot_margin_left"
+                    android:layout_marginTop="@dimen/movplot_margin_top"
                     android:fontFamily="sans-serif-light"
-                    android:paddingRight="10dp"
+                    android:paddingRight="@dimen/movplot_padding_right"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textSize="15sp" />
+                    android:textSize="@dimen/movplot_txt_size" />
 
 
                 <TextView
@@ -76,9 +76,9 @@
                     android:layout_alignParentRight="true"
                     android:drawableRight="@drawable/cart_icon"
                     android:fontFamily="sans-serif-regular"
-                    android:paddingBottom="8dp"
-                    android:paddingRight="8dp"
-                    android:text="ADD TO CART  "
+                    android:paddingBottom="@dimen/movcart_padding_bottom"
+                    android:paddingRight="@dimen/movcart_padding_right"
+                    android:text="@string/add_movie_to_cart"
                     android:textColor="@color/colorPrimary" />
 
 

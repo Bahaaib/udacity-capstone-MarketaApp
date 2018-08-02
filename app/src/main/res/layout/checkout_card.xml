@@ -10,7 +10,7 @@
     <android.support.v7.widget.CardView
         android:id="@+id/checkoutCard"
         android:layout_width="match_parent"
-        android:layout_height="70dp">
+        android:layout_height="@dimen/chkoutcard_height">
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -18,51 +18,49 @@
 
         <TextView
             android:id="@+id/checkTitle"
-            android:layout_width="230dp"
+            android:layout_width="@dimen/chktitle_width"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:textSize="24sp"
+            android:layout_marginLeft="@dimen/chktitle_margin_left"
+            android:layout_marginTop="@dimen/chktitle_margin_top"
+            android:textSize="@dimen/chktitle_txt_size"
             android:fontFamily="sans-serif"
             android:maxLines="1"
-            android:ellipsize="end"
-            />
+            android:ellipsize="end" />
 
         <TextView
             android:id="@+id/checkQty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/checkTitle"
-            android:layout_marginTop="16dp"
-            android:textSize="14sp"
-            android:text="three"
-            android:paddingLeft="5dp"/>
+            android:layout_marginTop="@dimen/chkqty_margin_top"
+            android:textSize="@dimen/chkqty_txt_size"
+            android:paddingLeft="@dimen/chkqty_padding_left"/>
 
         </RelativeLayout>
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/checkImg"
-            android:layout_width="40dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="280dp"
-            android:layout_marginTop="4dp"
+            android:layout_width="@dimen/chkimg_width"
+            android:layout_height="@dimen/chkimg_height"
+            android:layout_marginLeft="@dimen/chkimg_margin_left"
+            android:layout_marginTop="@dimen/chkimg_margin_top"
             android:scaleType="fitXY"
             card_view:riv_border_color="@color/colorPrimary"
-            app:riv_border_width="2dip"/>
+            app:riv_border_width="@dimen/chkimg_border_width"/>
 
         <ImageView
             android:id="@+id/delImg"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="43dp"
+            android:layout_width="@dimen/delimg_width"
+            android:layout_height="@dimen/delimg_height"
+            android:layout_marginLeft="@dimen/delimg_margin_left"
+            android:layout_marginTop="@dimen/delimg_margin_top"
             android:src="@drawable/delete_icon"/>
 
         <View
             android:id="@+id/spaceBar"
             android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:layout_marginTop="69dp"
+            android:layout_height="@dimen/chkspacebar_height"
+            android:layout_marginTop="@dimen/chkspacebar_margin_top"
             android:background="@color/colorSpaces" />
 
 

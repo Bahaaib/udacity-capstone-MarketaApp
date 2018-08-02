@@ -37,7 +37,7 @@ public class BookFragment extends Fragment {
     //Volley
     private RequestQueue requestQueue;
     public static ArrayList<String> strList;
-    private String API_URL = "https://api.myjson.com/bins/14cqju";
+    private String API_URL;
 
 
     public BookFragment() {
@@ -48,6 +48,8 @@ public class BookFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        API_URL = getActivity().getResources().getString(R.string.book_api_url);
 
     }
 

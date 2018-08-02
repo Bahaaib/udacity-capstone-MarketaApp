@@ -10,5 +10,7 @@
     <color name="colorSpaces">#E0E0E0</color>
     <color name="colorFont">#000000</color>
     <color name="colorBackgrounds">#EEEEEE</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#ffffff</color>
 
 </resources>

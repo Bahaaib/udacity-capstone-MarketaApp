@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                 int id = item.getItemId();
                 switch (id) {
                     case R.id.home:
-                        Toast.makeText(MainActivity.this, "You're Already in Home", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, R.string.home_toast, Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.about:
                         startActivity(new Intent(MainActivity.this, AboutActivity.class));

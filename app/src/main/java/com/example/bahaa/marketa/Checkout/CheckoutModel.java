@@ -9,10 +9,10 @@ import java.io.Serializable;
 public class CheckoutModel implements Serializable{
 
     private String checkTitle;
-    private int checkImg;
+    private String checkImg;
     private Integer checkQty;
 
-    public CheckoutModel(String checkTitle, Integer checkQty, int checkImg) {
+    public CheckoutModel(String checkTitle, Integer checkQty, String checkImg) {
         this.checkTitle = checkTitle;
         this.checkQty = checkQty;
         this.checkImg = checkImg;
@@ -38,11 +38,11 @@ public class CheckoutModel implements Serializable{
         this.checkQty = checkQty;
     }
 
-    public int getCheckImg() {
+    public String getCheckImg() {
         return checkImg;
     }
 
-    public void setCheckImg(int imageRef) {
+    public void setCheckImg(String imageRef) {
         this.checkImg = imageRef;
     }
 

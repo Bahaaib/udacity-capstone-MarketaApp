@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bahaa.marketa.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -78,7 +79,10 @@ public class CheckoutRecyclerAdapter extends RecyclerView.Adapter {
 
             cardTitle.setText(checkModel.get(position).getCheckTitle());
             cardQty.setText("(" + checkModel.get(position).getCheckQty().toString() + ")");
-            cardImage.setImageResource(checkModel.get(position).getCheckImg());
+
+            Picasso.with(cContext)
+                    .load(checkModel.get(position).getCheckImg())
+                    .into(cardImage);
 
             deleteIcon.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -90,7 +94,7 @@ public class CheckoutRecyclerAdapter extends RecyclerView.Adapter {
                     removePos = position;
 
                     itemsList.remove(itemsList.get(position));
-                    Toast.makeText(cContext, "Item Removed!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(cContext, R.string.item_removed_toast, Toast.LENGTH_LONG).show();
 
                 }
             });

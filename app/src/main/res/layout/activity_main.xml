@@ -13,7 +13,8 @@
         <android.support.design.widget.AppBarLayout
             android:id="@+id/appBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/appbar_elev">
 
 
             <android.support.v7.widget.Toolbar
@@ -21,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
                 android:background="?android:attr/colorPrimary"
-                android:elevation="6dp"
+                android:elevation="@dimen/appbar_elev"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 app:layout_collapseMode="pin"
                 app:layout_scrollFlags="scroll|enterAlways"
@@ -33,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:background="?android:attr/colorPrimary"
-                android:elevation="6dp"
+                android:elevation="@dimen/appbar_elev"
                 android:minHeight="?android:attr/actionBarSize"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 

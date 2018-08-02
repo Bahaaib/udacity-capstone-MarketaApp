@@ -241,12 +241,12 @@ public class BookDetailsActivity extends AppCompatActivity {
                 voucherStr = voucher.getText().toString();
 
                 //Check Voucher Coupon validation among 2 Coupons available OR no Coupon is OK!
-                if (voucherStr.equals("OFF50")) {
+                if (voucherStr.equals(getString(R.string.voucher_off50))) {
                     disFactor = 0.5f;
                     validCoupon = true;
 
 
-                } else if (voucherStr.equals("OFF25")) {
+                } else if (voucherStr.equals(getString(R.string.voucher_off25))) {
                     disFactor = 0.25f;
                     validCoupon = true;
 
@@ -264,18 +264,18 @@ public class BookDetailsActivity extends AppCompatActivity {
 
                 //Showing the snackbar upon the above fields states..
                 if (!validQty && !validCoupon) {
-                    createSnackbar("INVALID DATA IN BOTH FIELDS");
+                    createSnackbar(getString(R.string.snack_invalid));
 
                 } else if (!validQty) {
-                    createSnackbar("NOT ALLOWED LESS THAN 1 PRODUCT");
+                    createSnackbar(getString(R.string.snack_qty));
                 } else if (!validCoupon && validQty) {
-                    createSnackbar("COUPON MAY BE INVALID OR OUTDATED");
+                    createSnackbar(getString(R.string.snack_outdate));
                 }
 
                 //Freeze the Popup window preventing it from moving to checkout if any field input is invalid!
                 if (validCoupon && validQty) {
                     CheckoutModel model = new CheckoutModel();
-                    model.setCheckImg(getIntent().getIntExtra("bookCoverImg", 1));
+                    model.setCheckImg(getIntent().getStringExtra("bookCoverImg"));
                     model.setCheckTitle(getIntent().getStringExtra("bookTitle"));
                     model.setCheckQty(itemQty);
 

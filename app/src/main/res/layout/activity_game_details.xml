@@ -18,12 +18,12 @@
         <android.support.v7.widget.CardView
             android:id="@+id/detailsCardView"
             android:layout_width="match_parent"
-            android:layout_height="480dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_height="@dimen/details_cv_height"
+            android:layout_marginLeft="@dimen/details_cv_margin_left"
+            android:layout_marginRight="@dimen/details_cv_margin_right"
             android:alpha="0.8"
-            android:elevation="4dp"
-            card_view:cardCornerRadius="8dp">
+            android:elevation="@dimen/details_cv_elev"
+            card_view:cardCornerRadius="@dimen/details_cv_corner_rad">
 
             <RelativeLayout
                 android:id="@+id/relLayout"
@@ -33,40 +33,39 @@
                 <ImageView
                     android:id="@+id/movieDetCoverImg"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="@dimen/game_ci_height"
                     android:scaleType="centerCrop" />
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="@dimen/game_spacebar_height"
                     android:alpha="0.3"
-                    android:background="#000000" />
+                    android:background="@color/colorBlack" />
 
                 <com.makeramen.roundedimageview.RoundedImageView
                     android:id="@+id/smallImg"
-                    android:layout_width="70dp"
-                    android:layout_height="100dp"
+                    android:layout_width="@dimen/game_small_img_width"
+                    android:layout_height="@dimen/game_small_img_height"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginTop="157dp"
+                    android:layout_marginStart="@dimen/game_small_img_margin_start"
+                    android:layout_marginTop="@dimen/game_small_img_margin_top"
                     android:scaleType="centerCrop"
-                    app:riv_border_color="#ffffff"
-                    app:riv_border_width="2dip" />
+                    app:riv_border_color="@color/colorWhite"
+                    app:riv_border_width="@dimen/game_small_img_border_width" />
 
                 <TextView
                     android:id="@+id/txtTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/movieDetCoverImg"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="@dimen/txttitle_margin_bottom"
+                    android:layout_marginLeft="@dimen/txttitle_margin_left"
                     android:layout_toEndOf="@+id/smallImg"
                     android:maxLines="1"
-                    android:text="call of duty"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="#ffffff"
-                    android:textSize="20sp"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/txttitle_txt_size"
                     android:visibility="visible" />
 
                 <TextView
@@ -74,65 +73,65 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/movieDetCoverImg"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="@dimen/gameplot_margin_left"
+                    android:layout_marginTop="@dimen/gameplot_margin_top"
                     android:layout_toEndOf="@+id/smallImg"
                     android:fontFamily="sans-serif-light"
-                    android:paddingRight="10dp"
+                    android:paddingRight="@dimen/gameplot_padding_right"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textSize="13sp" />
+                    android:textSize="@dimen/gameplot_txt_size" />
 
                 <TextView
                     android:id="@+id/txtDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtPlot"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="@dimen/txtDate_margin_left"
+                    android:layout_marginTop="@dimen/txtDate_margin_top"
                     android:layout_toEndOf="@+id/smallImg"
                     android:fontFamily="sans-serif-condensed"
-                    android:paddingRight="10dp"
+                    android:paddingRight="@dimen/txtDate_padding_right"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textSize="15sp" />
+                    android:textSize="@dimen/txtDate_txt_size" />
 
                 <TextView
                     android:id="@+id/txtModes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtDate"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="@dimen/txtmodes_margin_left"
+                    android:layout_marginTop="@dimen/txtmodes_margin_top"
                     android:layout_toEndOf="@+id/smallImg"
                     android:fontFamily="sans-serif-condensed"
-                    android:paddingRight="10dp"
+                    android:paddingRight="@dimen/txtmodes_padding_right"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textSize="15sp" />
+                    android:textSize="@dimen/txtmodes_txt_size" />
 
                 <TextView
                     android:id="@+id/txtDev"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtModes"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="@dimen/txtdev_margin_left"
+                    android:layout_marginTop="@dimen/txtdev_margin_top"
                     android:layout_toEndOf="@+id/smallImg"
                     android:fontFamily="sans-serif-condensed"
-                    android:paddingRight="10dp"
+                    android:paddingRight="@dimen/txtdev_padding_right"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textSize="15sp" />
+                    android:textSize="@dimen/txtdev_txt_size" />
 
                 <TextView
                     android:id="@+id/txtPlatform"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtDev"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="@dimen/txtform_margin_left"
+                    android:layout_marginTop="@dimen/txtform_margin_top"
                     android:layout_toEndOf="@+id/smallImg"
                     android:fontFamily="sans-serif-condensed"
-                    android:paddingRight="10dp"
+                    android:paddingRight="@dimen/txtform_padding_right"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textSize="15sp" />
+                    android:textSize="@dimen/txtform_txt_size" />
 
                 <TextView
                     android:id="@+id/gameCart"
@@ -142,9 +141,9 @@
                     android:layout_alignParentRight="true"
                     android:drawableRight="@drawable/cart_icon"
                     android:fontFamily="sans-serif-regular"
-                    android:paddingBottom="8dp"
-                    android:paddingRight="8dp"
-                    android:text="ADD TO CART  "
+                    android:paddingBottom="@dimen/gamecart_padding_bottom"
+                    android:paddingRight="@dimen/gamecart_padding_right"
+                    android:text="@string/add_game_to_cart"
                     android:textColor="@color/colorPrimary" />
 
 

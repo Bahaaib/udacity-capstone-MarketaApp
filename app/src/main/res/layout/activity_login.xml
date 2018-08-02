@@ -9,18 +9,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:paddingLeft="@dimen/log_lay_padding_left"
+        android:paddingRight="@dimen/log_lay_padding_right">
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/emailLay"
-            android:layout_width="280dp"
+            android:layout_width="@dimen/email_width"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="192dp"
+            android:layout_marginTop="@dimen/email_margin_top"
             android:gravity="center"
-            android:textColorHint="#FFFFFF">
+            android:textColorHint="@color/colorWhite">
 
             <EditText
                 android:id="@+id/loginMail"
@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="192dp"
+                android:layout_marginTop="@dimen/loginmail_margin_top"
                 android:backgroundTint="@color/colorAccent"
                 android:drawableLeft="@drawable/ic_mail"
                 android:drawableStart="@drawable/ic_mail"
@@ -36,29 +36,28 @@
                 android:gravity="center"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
-                android:textColorHint="@color/colorAccent"
-                />
+                android:textColorHint="@color/colorAccent" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/passLay"
-            android:layout_width="280dp"
+            android:layout_width="@dimen/passlay_width"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/emailLay"
             android:layout_alignStart="@+id/emailLay"
             android:layout_alignTop="@+id/emailLay"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="@dimen/passlay_margin_top"
             android:gravity="center"
-            android:textColorHint="#FFFFFF">
+            android:textColorHint="@color/colorWhite">
 
             <EditText
                 android:id="@+id/loginPassword"
-                android:layout_width="260dp"
+                android:layout_width="@dimen/loginpass_width"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/loginMail"
                 android:layout_alignStart="@+id/loginMail"
                 android:layout_alignTop="@+id/loginMail"
-                android:layout_marginTop="64dp"
+                android:layout_marginTop="@dimen/loginpass_margin_top"
                 android:backgroundTint="@color/colorAccent"
                 android:drawableLeft="@drawable/ic_lock"
                 android:drawableStart="@drawable/ic_lock"
@@ -66,14 +65,14 @@
                 android:gravity="center"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:textColorHint="#FFFFFF"
+                android:textColorHint="@color/colorWhite"
                 />
         </android.support.design.widget.TextInputLayout>
 
 
         <FrameLayout
             android:id="@+id/buttonFrame"
-            android:layout_width="260dp"
+            android:layout_width="@dimen/btnframe_width"
             android:layout_height="match_parent"
             android:layout_above="@+id/forgotPassText"
             android:layout_alignLeft="@+id/login"
@@ -86,7 +85,7 @@
 
         <Button
             android:id="@+id/login"
-            android:layout_width="260dp"
+            android:layout_width="@dimen/btnframe_width"
             android:layout_height="wrap_content"
             android:layout_below="@+id/passLay"
             android:layout_centerHorizontal="true"
@@ -102,7 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/login"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/forgot_margin_top"
             android:text="@string/ForgPass"
             android:textColor="@color/colorAccent" />
 
@@ -112,7 +111,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/forgotPassText"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="@dimen/signtxt_margin_top"
             android:text="@string/signUp"
             android:textColor="@color/colorAccent" />
 

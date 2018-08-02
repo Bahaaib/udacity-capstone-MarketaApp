@@ -19,12 +19,12 @@
         <android.support.v7.widget.CardView
             android:id="@+id/bookdetailsCard"
             android:layout_width="match_parent"
-            android:layout_height="480dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_height="@dimen/book_height"
+            android:layout_marginLeft="@dimen/book_marginleft"
+            android:layout_marginRight="@dimen/book_marginright"
             android:alpha="0.8"
-            android:elevation="4dp"
-            card_view:cardCornerRadius="8dp">
+            android:elevation="@dimen/book_elev"
+            card_view:cardCornerRadius="@dimen/book_corner_radius">
 
             <RelativeLayout
                 android:id="@+id/bookRelLayout"
@@ -33,41 +33,41 @@
 
                 <ImageView
                     android:id="@+id/movieDetCoverImg"
-                    android:layout_width="180dp"
+                    android:layout_width="@dimen/book_img_ht"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
-                    android:transitionName="selectedMovie" />
+                    android:transitionName="@string/transition_name" />
 
                 <View
-                    android:layout_width="180dp"
+                    android:layout_width="@dimen/book_view_wd"
                     android:layout_height="match_parent"
                     android:alpha="0.3"
-                    android:background="#000000" />
+                    android:background="@color/colorBlack" />
 
 
                 <TextView
                     android:id="@+id/bookSumHeader"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="188dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="@dimen/booktv1_marginleft"
+                    android:layout_marginTop="@dimen/booktv1_margintop"
                     android:maxLines="1"
-                    android:text="Summary: "
+                    android:text="@string/book_summary"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/booktv1_txt_size"
                     android:visibility="visible" />
 
                 <TextView
                     android:id="@+id/bookSummary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="188dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="@dimen/booktv2_marginleft"
+                    android:layout_marginTop="@dimen/booktv2_margintop"
                     android:fontFamily="sans-serif-light"
-                    android:paddingRight="2dp"
+                    android:paddingRight="@dimen/booktv2_padding"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="#000000"
+                    android:textColor="@color/colorBlack"
                     android:textSize="13sp" />
 
                 <TextView
@@ -78,9 +78,9 @@
                     android:layout_alignParentRight="true"
                     android:drawableRight="@drawable/cart_icon"
                     android:fontFamily="sans-serif-regular"
-                    android:paddingBottom="8dp"
-                    android:paddingRight="8dp"
-                    android:text="ADD TO CART  "
+                    android:paddingBottom="@dimen/bookcart_padding_btm"
+                    android:paddingRight="@dimen/bookcart_padding_right"
+                    android:text="@string/add_book_to_cart"
                     android:textColor="@color/colorPrimary" />
             </RelativeLayout>
 
