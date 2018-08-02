@@ -70,6 +70,12 @@
     <string name="snack_qty">NOT ALLOWED LESS THAN 1 PRODUCT</string>
     <string name="snack_outdate">COUPON MAY BE INVALID OR OUTDATED</string>
 
+    <!-- TODO: Game Fragment -->
+    <string name="game_api_url">https://api.myjson.com/bins/11wuyy</string>
+
+    <!-- TODO: Movie Fragment -->
+    <string name="movie_api_url">https://api.myjson.com/bins/lu5my</string>
+
     <!-- TODO: Book Fragment -->
     <string name="book_api_url">https://api.myjson.com/bins/14cqju</string>
 
@@ -98,8 +104,11 @@
     <!-- TODO: Splash Screen -->
     <string name="splash_app_name">MARKETA</string>
     <string name="splashbanner_txt">Your Home of Entertainment</string>
-    <string name="game_api_url">https://api.myjson.com/bins/11wuyy</string>
-    <string name="movie_api_url">https://api.myjson.com/bins/lu5my</string>
+
+
+    <!-- TODO: App Widget -->
+    <string name="appwidget_text">Pick products to show</string>
+    <string name="widget_action">android.appwidget.action.APPWIDGET_UPDATE2</string>
 
 
 </resources>

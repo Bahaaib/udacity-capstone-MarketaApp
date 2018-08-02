@@ -10,11 +10,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bahaa.marketa.R;
+import com.example.bahaa.marketa.Widget.UpdateCartService;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-
-import static com.example.bahaa.marketa.MainActivity.itemsList;
 
 
 /**
@@ -28,9 +27,13 @@ public class CheckoutRecyclerAdapter extends RecyclerView.Adapter {
     public static boolean isRemoved;
     public static int removePos;
 
+    private ArrayList<String> itemsList, qtyList;
+
 
     {
         checkModel = new ArrayList<>();
+        itemsList = new ArrayList<>();
+        qtyList = new ArrayList<>();
 
 
     }
@@ -78,7 +81,10 @@ public class CheckoutRecyclerAdapter extends RecyclerView.Adapter {
 
 
             cardTitle.setText(checkModel.get(position).getCheckTitle());
+            itemsList.add(checkModel.get(position).getCheckTitle());
+
             cardQty.setText("(" + checkModel.get(position).getCheckQty().toString() + ")");
+            qtyList.add(checkModel.get(position).getCheckQty().toString());
 
             Picasso.with(cContext)
                     .load(checkModel.get(position).getCheckImg())
@@ -98,6 +104,8 @@ public class CheckoutRecyclerAdapter extends RecyclerView.Adapter {
 
                 }
             });
+
+            UpdateCartService.startCartService(cContext, itemsList, qtyList);
         }
 
 

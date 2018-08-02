@@ -238,6 +238,16 @@
     <dimen name="splashbanner_txt_size">20sp</dimen>
     <dimen name="progbar_width">180dp</dimen>
     <dimen name="progbar_margin_top">400dp</dimen>
+    <dimen name="widget_txt_size">14sp</dimen>
+    <dimen name="widget_margin">0dp</dimen>
+    <dimen name="widget_div_height">0.5dp</dimen>
+    <dimen name="widgetitemtitle_margin_left">4dp</dimen>
+    <dimen name="widgetitemtitle_margin_top">4dp</dimen>
+    <dimen name="widgetitemtitle_txt_size">14sp</dimen>
+    <dimen name="widgetitemqty_txt_size">10sp</dimen>
+    <dimen name="widgetitemqty_margin_top">20dp</dimen>
+    <dimen name="widgetitemqty_margin_left">4dp</dimen>
+    <dimen name="widgetlistitem_padding_bottom">8dp</dimen>
 
 
 </resources>

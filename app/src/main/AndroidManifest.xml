@@ -54,6 +54,25 @@
         <activity
             android:name=".CreditActivity"
             android:theme="@style/aboutActivity"></activity>
+
+        <service
+            android:name=".Widget.CartWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <service android:name=".Widget.UpdateCartService" />
+
+        <receiver
+            android:name=".Widget.CartWidgetProvider"
+            android:icon="@drawable/ic_cart">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE2" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info" />
+        </receiver>
     </application>
 
 </manifest>
