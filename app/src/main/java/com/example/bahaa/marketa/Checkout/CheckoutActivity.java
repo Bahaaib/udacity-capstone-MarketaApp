@@ -1,5 +1,6 @@
 package com.example.bahaa.marketa.Checkout;
 
+import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -19,6 +20,7 @@ import com.example.bahaa.marketa.Auth.LoginActivity;
 import com.example.bahaa.marketa.CreditActivity;
 import com.example.bahaa.marketa.MainActivity;
 import com.example.bahaa.marketa.R;
+import com.example.bahaa.marketa.Room.CartDatabase;
 import com.google.firebase.auth.FirebaseAuth;
 
 import static com.example.bahaa.marketa.Checkout.CheckoutRecyclerAdapter.isRemoved;
@@ -49,6 +51,10 @@ public class CheckoutActivity extends AppCompatActivity {
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private NavigationView navigationView;
 
+    //Room DB
+    private static final String DATABASE_NAME = "cart_db";
+    public static CartDatabase cartDatabase;
+
     //Firebase Auth
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -61,6 +67,11 @@ public class CheckoutActivity extends AppCompatActivity {
 
         //Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+
+        //Room DB
+        cartDatabase = Room.databaseBuilder(this, CartDatabase.class, DATABASE_NAME)
+                .fallbackToDestructiveMigration()
+                .build();
 
         //Assigning all used objects to their views
         updateRefresher = (SwipeRefreshLayout) findViewById(R.id.updateRefresher);

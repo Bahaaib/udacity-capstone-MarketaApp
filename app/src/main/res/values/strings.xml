@@ -59,6 +59,7 @@
     <string name="grand_total">Grand Total:</string>
     <string name="order_now">ORDER NOW!</string>
     <string name="item_removed_toast">Item Removed!</string>
+    <string name="del_icon">card delete icon</string>
 
     <!-- TODO: Book Details Activity -->
     <string name="transition_name">selectedMovie</string>
@@ -109,6 +110,12 @@
     <!-- TODO: App Widget -->
     <string name="appwidget_text">Pick products to show</string>
     <string name="widget_action">android.appwidget.action.APPWIDGET_UPDATE2</string>
+
+    <!-- TODO: Navigation Menu -->
+    <string name="menu_home">Home</string>
+    <string name="menu_about">About</string>
+    <string name="menu_credit">Credit</string>
+    <string name="menu_logout">Logout</string>
 
 
 </resources>

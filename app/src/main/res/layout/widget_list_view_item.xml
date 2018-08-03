@@ -12,7 +12,7 @@
         android:id="@+id/widget_list_view_item_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/widgetitemtitle_margin_left"
+        android:layout_marginStart="@dimen/widgetitemtitle_margin_left"
         android:layout_marginTop="@dimen/widgetitemtitle_margin_top"
         android:fontFamily="sans-serif-condensed"
         android:textSize="@dimen/widgetitemtitle_txt_size"
@@ -22,7 +22,7 @@
         android:id="@+id/widget_list_view_item_qty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/widgetitemqty_margin_left"
+        android:layout_marginStart="@dimen/widgetitemqty_margin_left"
         android:layout_marginTop="@dimen/widgetitemqty_margin_top"
         android:fontFamily="sans-serif"
         android:textSize="@dimen/widgetitemqty_txt_size" />

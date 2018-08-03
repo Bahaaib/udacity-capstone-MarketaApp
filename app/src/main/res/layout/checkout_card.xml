@@ -20,7 +20,7 @@
             android:id="@+id/checkTitle"
             android:layout_width="@dimen/chktitle_width"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/chktitle_margin_left"
+            android:layout_marginStart="@dimen/chktitle_margin_left"
             android:layout_marginTop="@dimen/chktitle_margin_top"
             android:textSize="@dimen/chktitle_txt_size"
             android:fontFamily="sans-serif"
@@ -31,10 +31,10 @@
             android:id="@+id/checkQty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/checkTitle"
+            android:layout_toEndOf="@id/checkTitle"
             android:layout_marginTop="@dimen/chkqty_margin_top"
             android:textSize="@dimen/chkqty_txt_size"
-            android:paddingLeft="@dimen/chkqty_padding_left"/>
+            android:paddingStart="@dimen/chkqty_padding_left"/>
 
         </RelativeLayout>
 
@@ -52,9 +52,10 @@
             android:id="@+id/delImg"
             android:layout_width="@dimen/delimg_width"
             android:layout_height="@dimen/delimg_height"
-            android:layout_marginLeft="@dimen/delimg_margin_left"
+            android:layout_marginStart="@dimen/delimg_margin_left"
             android:layout_marginTop="@dimen/delimg_margin_top"
-            android:src="@drawable/delete_icon"/>
+            android:src="@drawable/delete_icon"
+            android:contentDescription="@string/del_icon" />
 
         <View
             android:id="@+id/spaceBar"

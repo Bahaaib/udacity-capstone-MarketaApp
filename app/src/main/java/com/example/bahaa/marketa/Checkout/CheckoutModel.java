@@ -1,14 +1,21 @@
 package com.example.bahaa.marketa.Checkout;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 
 /**
  * Created by Bahaa on 12/18/2017.
  */
-
+@Entity
 public class CheckoutModel implements Serializable{
 
+    @NonNull
+    @PrimaryKey
     private String checkTitle;
+
     private String checkImg;
     private Integer checkQty;
 

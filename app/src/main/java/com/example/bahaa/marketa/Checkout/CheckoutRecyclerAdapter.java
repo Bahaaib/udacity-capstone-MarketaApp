@@ -2,6 +2,7 @@ package com.example.bahaa.marketa.Checkout;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import com.example.bahaa.marketa.Widget.UpdateCartService;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import static com.example.bahaa.marketa.Checkout.CheckoutActivity.cartDatabase;
 
 
 /**
@@ -90,6 +93,15 @@ public class CheckoutRecyclerAdapter extends RecyclerView.Adapter {
                     .load(checkModel.get(position).getCheckImg())
                     .into(cardImage);
 
+            //Add to Room
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    cartDatabase.DaoAccess().insertITEMToDB(checkModel.get(position));
+                    Log.i("RoomMSG", "Added to DB");
+                    }
+            }).start();
+
             deleteIcon.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -100,6 +112,14 @@ public class CheckoutRecyclerAdapter extends RecyclerView.Adapter {
                     removePos = position;
 
                     itemsList.remove(itemsList.get(position));
+                    //Remove from Room
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            cartDatabase.DaoAccess().deleteItemFromDB(checkModel.get(position));
+                            Log.i("RoomMSG", "Removed from DB");
+                            }
+                    }).start();
                     Toast.makeText(cContext, R.string.item_removed_toast, Toast.LENGTH_LONG).show();
 
                 }
