@@ -48,8 +48,8 @@
                 android:layout_height="@dimen/gamespacebar_height"
                 android:layout_below="@+id/cardTitle"
                 android:layout_marginBottom="@dimen/gamespacebar_margin_bottom"
-                android:layout_marginStart="@dimen/gamespacebar_margin_left"
-                android:layout_marginEnd="@dimen/gamespacebar_margin_right"
+                android:layout_marginLeft="@dimen/gamespacebar_margin_left"
+                android:layout_marginRight="@dimen/gamespacebar_margin_right"
                 android:layout_marginTop="@dimen/gamespacebar_margin_top"
                 android:background="@color/colorSpaces" />
 
@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/spaceBar"
-                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:isIndicator="true"
                 android:maxHeight="@dimen/ratbar_max_height"
                 android:maxWidth="@dimen/ratbar_max_width"
@@ -75,9 +75,9 @@
                 android:id="@+id/priceValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
                 android:layout_below="@+id/spaceBar"
-                android:paddingEnd="@dimen/gameprice_padding_right"
+                android:paddingRight="@dimen/gameprice_padding_right"
                 android:paddingTop="@dimen/gameprice_padding_top"
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/gameprice_txt_size" />

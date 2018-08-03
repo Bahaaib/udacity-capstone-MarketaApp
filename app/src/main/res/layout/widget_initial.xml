@@ -17,7 +17,7 @@
         android:textSize="@dimen/widget_txt_size"
         android:fillViewport="false"
         android:textStyle="bold|italic"
-        android:layout_alignParentEnd="false"
+        android:layout_alignParentRight="false"
         android:layout_alignParentBottom="false"
         android:layout_centerInParent="false"
         android:layout_centerHorizontal="false"

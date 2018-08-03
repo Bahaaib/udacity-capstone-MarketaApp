@@ -49,7 +49,7 @@ public class SplashScreen extends AppCompatActivity {
         protected String doInBackground(Void... params) {
             for (; count <= 100; count++) {
                 try {
-                    Thread.sleep(30);   //Freeze UI Thread for 100 millisecond at each loop
+                    Thread.sleep(50);   //Freeze UI Thread for 100 millisecond at each loop
                     publishProgress(count);
                 } catch (InterruptedException e) {
                     e.printStackTrace();

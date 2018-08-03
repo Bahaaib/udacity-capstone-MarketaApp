@@ -58,7 +58,7 @@
                 android:layout_toEndOf="@id/movieCardSmallImg"
                 android:layout_toRightOf="@+id/movieCardSmallImg"
                 android:maxLines="1"
-                android:paddingStart="@dimen/movcardtitle_padding_left"
+                android:paddingLeft="@dimen/movcardtitle_padding_left"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/movcardtitle_txt_size" />
@@ -72,8 +72,8 @@
                 android:layout_toRightOf="@+id/movieCardSmallImg"
                 android:ellipsize="end"
                 android:lines="3"
-                android:paddingStart="@dimen/movcardplot_padding_left"
-                android:paddingEnd="@dimen/movcardplot_padding_right"
+                android:paddingLeft="@dimen/movcardplot_padding_left"
+                android:paddingRight="@dimen/movcardplot_padding_right"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/movcardplot_txt_size" />
@@ -83,7 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/movieCardPlot"
-                android:layout_marginStart="@dimen/movprice_margin_left"
+                android:layout_marginLeft="@dimen/movprice_margin_left"
                 android:layout_marginTop="@dimen/movprice_margin_top"
                 android:layout_toEndOf="@+id/movieCardSmallImg"
                 android:layout_toRightOf="@+id/movieCardSmallImg"
