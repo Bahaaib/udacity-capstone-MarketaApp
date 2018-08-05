@@ -65,9 +65,9 @@
             android:name=".Widget.CartWidgetProvider"
             android:icon="@drawable/ic_cart">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE2" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
             </intent-filter>
+
 
             <meta-data
                 android:name="android.appwidget.provider"

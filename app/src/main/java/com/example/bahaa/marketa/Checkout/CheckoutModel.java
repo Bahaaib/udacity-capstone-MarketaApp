@@ -1,6 +1,7 @@
 package com.example.bahaa.marketa.Checkout;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
@@ -19,6 +20,7 @@ public class CheckoutModel implements Serializable{
     private String checkImg;
     private Integer checkQty;
 
+    @Ignore
     public CheckoutModel(String checkTitle, Integer checkQty, String checkImg) {
         this.checkTitle = checkTitle;
         this.checkQty = checkQty;

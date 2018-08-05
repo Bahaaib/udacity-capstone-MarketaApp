@@ -1,9 +1,12 @@
 package com.example.bahaa.marketa.Checkout;
 
-import android.arch.persistence.room.Room;
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,6 +15,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -20,8 +24,12 @@ import com.example.bahaa.marketa.Auth.LoginActivity;
 import com.example.bahaa.marketa.CreditActivity;
 import com.example.bahaa.marketa.MainActivity;
 import com.example.bahaa.marketa.R;
-import com.example.bahaa.marketa.Room.CartDatabase;
+import com.example.bahaa.marketa.Room.CartViewModel;
+import com.example.bahaa.marketa.Widget.UpdateCartService;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.example.bahaa.marketa.Checkout.CheckoutRecyclerAdapter.isRemoved;
 import static com.example.bahaa.marketa.Checkout.CheckoutRecyclerAdapter.removePos;
@@ -42,6 +50,8 @@ public class CheckoutActivity extends AppCompatActivity {
     public Float discountFactor;
     public Float gPrice, mPrice, bPrice;
 
+    public static ArrayList<String> items, qty;
+
 
 
     public SwipeRefreshLayout updateRefresher;
@@ -53,11 +63,14 @@ public class CheckoutActivity extends AppCompatActivity {
 
     //Room DB
     private static final String DATABASE_NAME = "cart_db";
-    public static CartDatabase cartDatabase;
+    //public static CartDatabase cartDatabase;
+    public static CartViewModel cartViewModel;
 
     //Firebase Auth
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+
+    private BroadcastReceiver broadcastReceiver;
 
 
     @Override
@@ -65,13 +78,14 @@ public class CheckoutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
 
+
+
         //Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        //Room DB
-        cartDatabase = Room.databaseBuilder(this, CartDatabase.class, DATABASE_NAME)
-                .fallbackToDestructiveMigration()
-                .build();
+        items = new ArrayList<>();
+        qty = new ArrayList<>();
+
 
         //Assigning all used objects to their views
         updateRefresher = (SwipeRefreshLayout) findViewById(R.id.updateRefresher);
@@ -86,6 +100,28 @@ public class CheckoutActivity extends AppCompatActivity {
         linearLayoutManager = new LinearLayoutManager(this);
 
         checkuotRV.setLayoutManager(linearLayoutManager);
+
+
+        //Room Live data
+        cartViewModel = ViewModelProviders.of(this).get(CartViewModel.class);
+        cartViewModel.getCartContent().observe(CheckoutActivity.this, new Observer<List<CheckoutModel>>() {
+            @Override
+            public void onChanged(@Nullable List<CheckoutModel> checkoutModels) {
+                checkoutModels = itemsList;
+                checkoutAdapter.addItems(checkoutModels);
+                Log.i("RoomMSG", "Observed DB Change!");
+            }
+        });
+
+        for (CheckoutModel dbItem : itemsList){
+            cartViewModel.insertItem(dbItem);
+        }
+
+        for (CheckoutModel widgetItem : itemsList){
+            items.add(widgetItem.getCheckTitle());
+            qty.add(String.valueOf(widgetItem.getCheckQty()));
+        }
+        UpdateCartService.startCartService(this, items, qty);
 
 
         subPrice = (TextView) findViewById(R.id.subPrice);

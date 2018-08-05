@@ -15,8 +15,12 @@ import com.example.bahaa.marketa.Widget.UpdateCartService;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import static com.example.bahaa.marketa.Checkout.CheckoutActivity.cartDatabase;
+import static com.example.bahaa.marketa.Checkout.CheckoutActivity.cartViewModel;
+import static com.example.bahaa.marketa.Checkout.CheckoutActivity.items;
+import static com.example.bahaa.marketa.Checkout.CheckoutActivity.qty;
+import static com.example.bahaa.marketa.MainActivity.itemsList;
 
 
 /**
@@ -26,22 +30,22 @@ import static com.example.bahaa.marketa.Checkout.CheckoutActivity.cartDatabase;
 public class CheckoutRecyclerAdapter extends RecyclerView.Adapter {
 
     private Context cContext;
-    private ArrayList<CheckoutModel> checkModel;
+    private List<CheckoutModel> checkModel;
     public static boolean isRemoved;
     public static int removePos;
 
-    private ArrayList<String> itemsList, qtyList;
+    private ArrayList<String> mItemsList, qtyList;
 
 
     {
         checkModel = new ArrayList<>();
-        itemsList = new ArrayList<>();
-        qtyList = new ArrayList<>();
+   //     mItemsList = items;
+     //   qtyList = qty;
 
 
     }
 
-    public CheckoutRecyclerAdapter(Context context, ArrayList<CheckoutModel> adapterModel) {
+    public CheckoutRecyclerAdapter(Context context, List<CheckoutModel> adapterModel) {
         this.cContext = context;
         this.checkModel = adapterModel;
     }
@@ -64,6 +68,11 @@ public class CheckoutRecyclerAdapter extends RecyclerView.Adapter {
         return checkModel.size();
     }
 
+    public void addItems(List<CheckoutModel> adapterList){
+        this.checkModel = adapterList;
+        notifyDataSetChanged();
+    }
+
     public class CheckoutViewHolder extends RecyclerView.ViewHolder {
 
         TextView cardTitle, cardQty;
@@ -84,23 +93,17 @@ public class CheckoutRecyclerAdapter extends RecyclerView.Adapter {
 
 
             cardTitle.setText(checkModel.get(position).getCheckTitle());
-            itemsList.add(checkModel.get(position).getCheckTitle());
+//            mItemsList.add(checkModel.get(position).getCheckTitle());
 
             cardQty.setText("(" + checkModel.get(position).getCheckQty().toString() + ")");
-            qtyList.add(checkModel.get(position).getCheckQty().toString());
+          //  qtyList.add(checkModel.get(position).getCheckQty().toString());
 
             Picasso.with(cContext)
                     .load(checkModel.get(position).getCheckImg())
                     .into(cardImage);
 
-            //Add to Room
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    cartDatabase.DaoAccess().insertITEMToDB(checkModel.get(position));
-                    Log.i("RoomMSG", "Added to DB");
-                    }
-            }).start();
+            Log.i("CartSize", String.valueOf(getItemCount()));
+
 
             deleteIcon.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -111,21 +114,25 @@ public class CheckoutRecyclerAdapter extends RecyclerView.Adapter {
                     isRemoved = true;
                     removePos = position;
 
-                    itemsList.remove(itemsList.get(position));
-                    //Remove from Room
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            cartDatabase.DaoAccess().deleteItemFromDB(checkModel.get(position));
-                            Log.i("RoomMSG", "Removed from DB");
-                            }
-                    }).start();
+                    //mItemsList.remove(mItemsList.get(position));
+
+                    cartViewModel.deleteItem(checkModel.get(position));
+
+                    itemsList.remove(checkModel.get(position));
+
                     Toast.makeText(cContext, R.string.item_removed_toast, Toast.LENGTH_LONG).show();
+
+                    items.remove(position);
+                    qty.remove(position);
+
+                    UpdateCartService.startCartService(cContext, items, qty);
+
 
                 }
             });
 
-            UpdateCartService.startCartService(cContext, itemsList, qtyList);
+
+
         }
 
 

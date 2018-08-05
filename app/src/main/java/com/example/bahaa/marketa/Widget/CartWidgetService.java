@@ -35,6 +35,7 @@ public class CartWidgetService extends RemoteViewsService {
 
         @Override
         public void onCreate() {
+
         }
 
         @Override
@@ -50,8 +51,8 @@ public class CartWidgetService extends RemoteViewsService {
 
         @Override
         public int getCount() {
-
             return remoteViewItemsList.size();
+
         }
 
         @Override
