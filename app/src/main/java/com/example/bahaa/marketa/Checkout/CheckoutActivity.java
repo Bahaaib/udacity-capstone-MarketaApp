@@ -30,6 +30,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import static com.example.bahaa.marketa.Checkout.CheckoutRecyclerAdapter.isRemoved;
 import static com.example.bahaa.marketa.Checkout.CheckoutRecyclerAdapter.removePos;
@@ -49,6 +50,9 @@ public class CheckoutActivity extends AppCompatActivity {
 
     public Float discountFactor;
     public Float gPrice, mPrice, bPrice;
+
+    private String subTotalStr, disStr, grandStr;
+
 
     public static ArrayList<String> items, qty;
 
@@ -158,11 +162,15 @@ public class CheckoutActivity extends AppCompatActivity {
 
         discount = (subTotal * discountFactor);
         grandTotal = subTotal - discount;
-
         //Showing current purchased items receipt
-        subPrice.setText(String.format("%.2f", subTotal) + "$");
-        discountPrice.setText(" - " + String.format("%.2f", discount) + "$");
-        grandPrice.setText(String.format("%.2f", grandTotal) + "$");
+        subTotalStr = String.format(Locale.getDefault(), "%.2f", subTotal);
+        subPrice.setText(getString(R.string.prices_str, subTotalStr));
+
+        disStr = getString(R.string.minus) + String.format(Locale.getDefault(), "%.2f", discount);
+        discountPrice.setText(getString(R.string.prices_str, disStr));
+
+        grandStr = String.format(Locale.getDefault(), "%.2f", grandTotal);
+        grandPrice.setText(getString(R.string.prices_str, grandStr));
 
 
 
@@ -183,9 +191,14 @@ public class CheckoutActivity extends AppCompatActivity {
                 }
 
                 //Show the new receipt
-                subPrice.setText(String.format("%.2f", subTotal) + "$");
-                discountPrice.setText(" - " + String.format("%.2f", discount) + "$");
-                grandPrice.setText(String.format("%.2f", grandTotal) + "$");
+                subTotalStr = String.format(Locale.getDefault(), "%.2f", subTotal);
+                subPrice.setText(getString(R.string.prices_str, subTotalStr));
+
+                disStr = getString(R.string.minus) + String.format(Locale.getDefault(), "%.2f", discount);
+                discountPrice.setText(getString(R.string.prices_str, disStr));
+
+                grandStr = String.format(Locale.getDefault(), "%.2f", grandTotal);
+                grandPrice.setText(getString(R.string.prices_str, grandStr));
 
                 //And notify RecyclerView Adapter to remove the corresponding card up from the UI
                 checkoutAdapter.notifyDataSetChanged();

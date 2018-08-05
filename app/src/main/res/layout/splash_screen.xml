@@ -17,7 +17,8 @@
         android:layout_marginTop="@dimen/splashapplogo_margin_top"
         android:elevation="@dimen/splashapplogo_elev"
         android:scaleType="centerCrop"
-        android:src="@drawable/marketa_logo" />
+        android:src="@drawable/marketa_logo"
+        android:contentDescription="@string/logo_image"/>
 
     <TextView
         android:id="@+id/app_name"

@@ -9,8 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:paddingLeft="@dimen/log_lay_padding_left"
-        android:paddingRight="@dimen/log_lay_padding_right">
+        android:paddingEnd="@dimen/log_lay_padding_right"
+        android:paddingStart="@dimen/log_lay_padding_left">
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/emailLay"
@@ -30,7 +30,6 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/loginmail_margin_top"
                 android:backgroundTint="@color/colorAccent"
-                android:drawableLeft="@drawable/ic_mail"
                 android:drawableStart="@drawable/ic_mail"
                 android:ems="10"
                 android:gravity="center"
@@ -43,7 +42,6 @@
             android:id="@+id/passLay"
             android:layout_width="@dimen/passlay_width"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/emailLay"
             android:layout_alignStart="@+id/emailLay"
             android:layout_alignTop="@+id/emailLay"
             android:layout_marginTop="@dimen/passlay_margin_top"
@@ -54,19 +52,16 @@
                 android:id="@+id/loginPassword"
                 android:layout_width="@dimen/loginpass_width"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/loginMail"
                 android:layout_alignStart="@+id/loginMail"
                 android:layout_alignTop="@+id/loginMail"
                 android:layout_marginTop="@dimen/loginpass_margin_top"
                 android:backgroundTint="@color/colorAccent"
-                android:drawableLeft="@drawable/ic_lock"
                 android:drawableStart="@drawable/ic_lock"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:textColorHint="@color/colorWhite"
-                />
+                android:textColorHint="@color/colorWhite" />
         </android.support.design.widget.TextInputLayout>
 
 
@@ -75,7 +70,6 @@
             android:layout_width="@dimen/btnframe_width"
             android:layout_height="match_parent"
             android:layout_above="@+id/forgotPassText"
-            android:layout_alignLeft="@+id/login"
             android:layout_alignStart="@+id/login"
             android:layout_alignTop="@+id/login"
             android:background="@drawable/login_button"

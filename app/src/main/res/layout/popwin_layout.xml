@@ -48,8 +48,9 @@
         android:layout_marginTop="@dimen/popqty_margin_top"
         android:background="@drawable/rounded_edge"
         android:gravity="center"
+        android:hint="@string/quantity"
         android:inputType="number"
-        android:text="@string/popqty_num"/>
+        android:text="@string/popqty_num" />
 
     <TextView
         android:id="@+id/voucherText"
@@ -74,20 +75,22 @@
         android:layout_marginTop="@dimen/popvou_margin_top"
         android:background="@drawable/rounded_edge"
         android:gravity="center"
+        android:hint="@string/voucher"
         android:inputType="textCapWords" />
 
     <TextView
         android:id="@+id/proceed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_marginTop="@dimen/popproceed_margin_top"
-        android:drawableRight="@drawable/done_icon"
         android:fontFamily="sans-serif-regular"
         android:paddingBottom="@dimen/popproceed_padding_bottom"
-        android:paddingRight="@dimen/popproceed_padding_right"
         android:text="@string/pop_proceed"
-        android:textColor="@color/colorPrimaryDark" />
+        android:textColor="@color/colorPrimaryDark"
+        android:drawableEnd="@drawable/done_icon"
+        android:paddingEnd="@dimen/popproceed_padding_right"
+        android:paddingStart="@dimen/popproceed_padding_right"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>

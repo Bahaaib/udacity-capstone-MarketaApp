@@ -23,12 +23,12 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/credit_img_margin_top"
-            app:riv_corner_radius="@dimen/credit_img_corner_rad"
-            app:riv_border_width="@dimen/credit_img_border_width"
             app:riv_border_color="@color/colorPrimary"
+            app:riv_border_width="@dimen/credit_img_border_width"
+            app:riv_corner_radius="@dimen/credit_img_corner_rad"
             app:riv_mutate_background="true"
-            app:riv_tile_mode="repeat"
-            app:riv_oval="true"/>
+            app:riv_oval="true"
+            app:riv_tile_mode="repeat" />
 
         <TextView
             android:id="@+id/developer_tv"
@@ -37,12 +37,12 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/dev_tv_margin_top"
             android:fontFamily="sans-serif-light"
-            android:paddingLeft="@dimen/dev_tv_padding_left"
-            android:paddingRight="@dimen/dev_tv_padding_right"
+            android:paddingEnd="@dimen/dev_tv_padding_right"
+            android:paddingStart="@dimen/dev_tv_padding_left"
             android:text="@string/developer_name"
             android:textAlignment="center"
-            android:textSize="@dimen/dev_tv_txt_size"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/dev_tv_txt_size" />
 
         <TextView
             android:id="@+id/credit_tv"
@@ -51,8 +51,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/credit_tv_margin_top"
             android:fontFamily="sans-serif-light"
-            android:paddingLeft="@dimen/credit_tv_padding_left"
-            android:paddingRight="@dimen/credit_tv_padding_right"
+            android:paddingEnd="@dimen/credit_tv_padding_right"
+            android:paddingStart="@dimen/credit_tv_padding_left"
             android:text="@string/credit_details"
             android:textAlignment="center"
             android:textSize="@dimen/credit_tv_txt_size" />

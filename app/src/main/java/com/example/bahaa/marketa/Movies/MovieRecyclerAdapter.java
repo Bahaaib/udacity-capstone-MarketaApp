@@ -78,7 +78,10 @@ public class MovieRecyclerAdapter extends RecyclerView.Adapter {
 
             movieTitle.setText(adapterModel.get(position).getMovieTitle());
             moviePlot.setText(adapterModel.get(position).getMoviePlot());
-            moviePrice.setText(adapterModel.get(position).getMoviePrice() + "$");
+
+
+            String priceStr = adapterModel.get(position).getMoviePrice();
+            moviePrice.setText(context.getString(R.string.prices_str, priceStr));
 
             Picasso.with(context)
                     .load(adapterModel.get(position).getThumbnailURL())

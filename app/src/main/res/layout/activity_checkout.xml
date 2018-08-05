@@ -38,68 +38,68 @@
             android:id="@+id/subTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/subtotal_margin_left"
             android:layout_marginTop="@dimen/subtotal_margin_top"
             android:fontFamily="sans-serif-medium"
             android:text="@string/subtotal"
-            android:textSize="@dimen/subtotal_txt_size" />
+            android:textSize="@dimen/subtotal_txt_size"
+            android:layout_marginStart="@dimen/subtotal_margin_left" />
 
         <TextView
             android:id="@+id/subPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/subprice_margin_left"
             android:layout_marginTop="@dimen/subprice_margin_top"
             android:fontFamily="sans-serif"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_marginStart="@dimen/subprice_margin_left" />
 
         <TextView
             android:id="@+id/discount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/discount_margin_left"
             android:layout_marginTop="@dimen/discount_margin_top"
             android:fontFamily="sans-serif-medium"
             android:text="@string/discount"
-            android:textSize="@dimen/discount_txt_size" />
+            android:textSize="@dimen/discount_txt_size"
+            android:layout_marginStart="@dimen/discount_margin_left" />
 
         <TextView
             android:id="@+id/disPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/disprice_margin_left"
             android:layout_marginTop="@dimen/disprice_margin_top"
             android:fontFamily="sans-serif"
-            android:textSize="@dimen/disprice_txt_size" />
+            android:textSize="@dimen/disprice_txt_size"
+            android:layout_marginStart="@dimen/disprice_margin_left" />
 
         <View
             android:id="@+id/spaceBar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/spacebar_height"
-            android:layout_marginLeft="@dimen/spacebar_margin_left"
-            android:layout_marginRight="@dimen/spacebar_margin_right"
             android:layout_marginTop="@dimen/spacebar_margin_top"
             android:alpha="0.3"
-            android:background="@color/colorPrimaryLight" />
+            android:background="@color/colorPrimaryLight"
+            android:layout_marginStart="@dimen/spacebar_margin_left"
+            android:layout_marginEnd="@dimen/spacebar_margin_right" />
 
         <TextView
             android:id="@+id/grandTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/grandtotal_margin_left"
             android:layout_marginTop="@dimen/grandtotal_margin_top"
             android:fontFamily="sans-serif-medium"
             android:text="@string/grand_total"
-            android:textSize="@dimen/grandtotal_txt_size" />
+            android:textSize="@dimen/grandtotal_txt_size"
+            android:layout_marginStart="@dimen/grandtotal_margin_left" />
 
         <TextView
             android:id="@+id/grandTotalPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/grandprice_margin_left"
             android:layout_marginTop="@dimen/grandprice_margin_top"
             android:fontFamily="sans-serif"
-            android:textSize="@dimen/grandprice_txt_size" />
+            android:textSize="@dimen/grandprice_txt_size"
+            android:layout_marginStart="@dimen/grandprice_margin_left" />
 
 
         <Button

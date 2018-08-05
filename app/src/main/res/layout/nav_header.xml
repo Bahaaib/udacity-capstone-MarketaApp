@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark"
     android:gravity="center"
-    android:background="@color/colorPrimaryDark">
+    android:orientation="vertical">
 
     <ImageView
-    android:layout_width="@dimen/navheadimg_width"
-    android:layout_height="@dimen/navheadimg_height"
-    android:layout_marginBottom="@dimen/navheadimg_margin_bottom"
-    android:layout_marginTop="@dimen/navheadimg_margin_top"
-    android:background="@drawable/marketa_logo"/>
+        android:layout_width="@dimen/navheadimg_width"
+        android:layout_height="@dimen/navheadimg_height"
+        android:layout_marginBottom="@dimen/navheadimg_margin_bottom"
+        android:layout_marginTop="@dimen/navheadimg_margin_top"
+        android:background="@drawable/marketa_logo"
+        android:contentDescription="@string/header_image" />
 
 </LinearLayout>

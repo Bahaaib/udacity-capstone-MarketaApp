@@ -12,7 +12,7 @@
     <dimen name="booktv1_txt_size">16sp</dimen>
     <dimen name="booktv2_marginleft">188dp</dimen>
     <dimen name="booktv2_margintop">40dp</dimen>
-    <dimen name="booktv2_padding">2dp</dimen>
+    <dimen name="booktv2_padding">4dp</dimen>
     <dimen name="bookcart_padding_btm">8dp</dimen>
     <dimen name="bookcart_padding_right">8dp</dimen>
     <dimen name="chkout_rv_height">330dp</dimen>
@@ -24,7 +24,7 @@
     <dimen name="discount_margin_left">12dp</dimen>
     <dimen name="discount_margin_top">380dp</dimen>
     <dimen name="discount_txt_size">20sp</dimen>
-    <dimen name="disprice_margin_left">245dp</dimen>
+    <dimen name="disprice_margin_left">260dp</dimen>
     <dimen name="disprice_margin_top">380dp</dimen>
     <dimen name="disprice_txt_size">20sp</dimen>
     <dimen name="spacebar_margin_left">15dp</dimen>
@@ -239,7 +239,6 @@
     <dimen name="progbar_width">180dp</dimen>
     <dimen name="progbar_margin_top">400dp</dimen>
     <dimen name="widget_txt_size">14sp</dimen>
-    <dimen name="widget_margin">0dp</dimen>
     <dimen name="widget_div_height">0.5dp</dimen>
     <dimen name="widgetitemtitle_margin_left">4dp</dimen>
     <dimen name="widgetitemtitle_margin_top">4dp</dimen>
@@ -248,6 +247,7 @@
     <dimen name="widgetitemqty_margin_top">20dp</dimen>
     <dimen name="widgetitemqty_margin_left">4dp</dimen>
     <dimen name="widgetlistitem_padding_bottom">8dp</dimen>
+    <dimen name="movcardtitle_margin_start">10dp</dimen>
 
 
 </resources>

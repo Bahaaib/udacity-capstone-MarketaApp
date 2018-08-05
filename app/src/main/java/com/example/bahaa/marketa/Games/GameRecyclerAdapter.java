@@ -86,7 +86,9 @@ public class GameRecyclerAdapter extends RecyclerView.Adapter {
                     .load(adapterModel.get(position).getImageRef())
                     .into(cardImage);
             cardTitle.setText(adapterModel.get(position).getGameTitle());
-            rateValue.setText(adapterModel.get(position).getPriceValue() + "$");
+
+            String priceStr = adapterModel.get(position).getPriceValue();
+            rateValue.setText(context.getString(R.string.prices_str, priceStr));
 
             ratingBar.setRating(adapterModel.get(position).getRateValue());
 

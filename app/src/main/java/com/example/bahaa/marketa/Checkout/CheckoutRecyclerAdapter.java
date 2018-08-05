@@ -93,10 +93,9 @@ public class CheckoutRecyclerAdapter extends RecyclerView.Adapter {
 
 
             cardTitle.setText(checkModel.get(position).getCheckTitle());
-//            mItemsList.add(checkModel.get(position).getCheckTitle());
 
-            cardQty.setText("(" + checkModel.get(position).getCheckQty().toString() + ")");
-          //  qtyList.add(checkModel.get(position).getCheckQty().toString());
+            String quantity = checkModel.get(position).getCheckQty().toString();
+            cardQty.setText(cContext.getString(R.string.chk_qty_str, quantity));
 
             Picasso.with(cContext)
                     .load(checkModel.get(position).getCheckImg())

@@ -82,7 +82,9 @@ public class BookRecyclerAdapter extends RecyclerView.Adapter {
 
             bookTitle.setText(adapterModel.get(position).getBookTitle());
             bookAuthor.setText(adapterModel.get(position).getBookAuthor());
-            bookPrice.setText(adapterModel.get(position).getBookPrice() + "$");
+
+            String priceStr = adapterModel.get(position).getBookPrice();
+            bookPrice.setText(context.getString(R.string.prices_str, priceStr));
 
             Picasso.with(context)
                     .load(adapterModel.get(position).getImgURL())

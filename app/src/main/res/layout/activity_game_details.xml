@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -19,8 +19,8 @@
             android:id="@+id/detailsCardView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/details_cv_height"
-            android:layout_marginLeft="@dimen/details_cv_margin_left"
-            android:layout_marginRight="@dimen/details_cv_margin_right"
+            android:layout_marginEnd="@dimen/details_cv_margin_right"
+            android:layout_marginStart="@dimen/details_cv_margin_left"
             android:alpha="0.8"
             android:elevation="@dimen/details_cv_elev"
             card_view:cardCornerRadius="@dimen/details_cv_corner_rad">
@@ -34,6 +34,7 @@
                     android:id="@+id/movieDetCoverImg"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/game_ci_height"
+                    android:contentDescription="@string/movie_cover_image"
                     android:scaleType="centerCrop" />
 
                 <View
@@ -60,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/movieDetCoverImg"
                     android:layout_marginBottom="@dimen/txttitle_margin_bottom"
-                    android:layout_marginLeft="@dimen/txttitle_margin_left"
+                    android:layout_marginStart="@dimen/txttitle_margin_left"
                     android:layout_toEndOf="@+id/smallImg"
                     android:maxLines="1"
                     android:textAppearance="?android:attr/textAppearanceLarge"
@@ -73,11 +74,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/movieDetCoverImg"
-                    android:layout_marginLeft="@dimen/gameplot_margin_left"
+                    android:layout_marginStart="@dimen/gameplot_margin_left"
                     android:layout_marginTop="@dimen/gameplot_margin_top"
                     android:layout_toEndOf="@+id/smallImg"
                     android:fontFamily="sans-serif-light"
-                    android:paddingRight="@dimen/gameplot_padding_right"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textSize="@dimen/gameplot_txt_size" />
 
@@ -86,11 +86,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtPlot"
-                    android:layout_marginLeft="@dimen/txtDate_margin_left"
+                    android:layout_marginStart="@dimen/txtDate_margin_left"
                     android:layout_marginTop="@dimen/txtDate_margin_top"
                     android:layout_toEndOf="@+id/smallImg"
                     android:fontFamily="sans-serif-condensed"
-                    android:paddingRight="@dimen/txtDate_padding_right"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textSize="@dimen/txtDate_txt_size" />
 
@@ -99,11 +98,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtDate"
-                    android:layout_marginLeft="@dimen/txtmodes_margin_left"
+                    android:layout_marginStart="@dimen/txtmodes_margin_left"
                     android:layout_marginTop="@dimen/txtmodes_margin_top"
                     android:layout_toEndOf="@+id/smallImg"
                     android:fontFamily="sans-serif-condensed"
-                    android:paddingRight="@dimen/txtmodes_padding_right"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textSize="@dimen/txtmodes_txt_size" />
 
@@ -112,11 +110,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtModes"
-                    android:layout_marginLeft="@dimen/txtdev_margin_left"
+                    android:layout_marginStart="@dimen/txtdev_margin_left"
                     android:layout_marginTop="@dimen/txtdev_margin_top"
                     android:layout_toEndOf="@+id/smallImg"
                     android:fontFamily="sans-serif-condensed"
-                    android:paddingRight="@dimen/txtdev_padding_right"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textSize="@dimen/txtdev_txt_size" />
 
@@ -125,11 +122,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtDev"
-                    android:layout_marginLeft="@dimen/txtform_margin_left"
+                    android:layout_marginStart="@dimen/txtform_margin_left"
                     android:layout_marginTop="@dimen/txtform_margin_top"
                     android:layout_toEndOf="@+id/smallImg"
                     android:fontFamily="sans-serif-condensed"
-                    android:paddingRight="@dimen/txtform_padding_right"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textSize="@dimen/txtform_txt_size" />
 
@@ -138,11 +134,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:drawableRight="@drawable/cart_icon"
+                    android:layout_alignParentEnd="true"
+                    android:drawableEnd="@drawable/cart_icon"
                     android:fontFamily="sans-serif-regular"
                     android:paddingBottom="@dimen/gamecart_padding_bottom"
-                    android:paddingRight="@dimen/gamecart_padding_right"
                     android:text="@string/add_game_to_cart"
                     android:textColor="@color/colorPrimary" />
 

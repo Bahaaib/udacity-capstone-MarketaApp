@@ -18,11 +18,11 @@
             android:id="@+id/movieDetailsCard"
             android:layout_width="match_parent"
             android:layout_height="@dimen/mov_detcard_width"
-            android:layout_marginLeft="@dimen/mov_detcard_margin_left"
-            android:layout_marginRight="@dimen/mov_detcard_margin_right"
             android:alpha="0.8"
             android:elevation="@dimen/mov_detcard_elev"
-            card_view:cardCornerRadius="@dimen/mov_detcard_border_rad">
+            card_view:cardCornerRadius="@dimen/mov_detcard_border_rad"
+            android:layout_marginEnd="@dimen/mov_detcard_margin_right"
+            android:layout_marginStart="@dimen/mov_detcard_margin_left">
 
             <RelativeLayout
                 android:id="@+id/relLayout"
@@ -34,7 +34,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/mov_detcardimg_height"
                     android:scaleType="centerCrop"
-                    android:transitionName="@string/transition_name" />
+                    android:transitionName="@string/transition_name"
+                    android:contentDescription="@string/movie_cover"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -46,7 +47,6 @@
                     android:id="@+id/movieTxtPlot"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/movplottxt_margin_left"
                     android:layout_marginTop="@dimen/movplottxt_margin_top"
                     android:fontFamily="sans-serif"
                     android:maxLines="1"
@@ -54,18 +54,20 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/movplottxt_txt_size"
-                    android:visibility="visible" />
+                    android:visibility="visible"
+                    android:layout_marginStart="@dimen/movplottxt_margin_left" />
 
                 <TextView
                     android:id="@+id/moviePlot"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/movplot_margin_left"
                     android:layout_marginTop="@dimen/movplot_margin_top"
                     android:fontFamily="sans-serif-light"
-                    android:paddingRight="@dimen/movplot_padding_right"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textSize="@dimen/movplot_txt_size" />
+                    android:textSize="@dimen/movplot_txt_size"
+                    android:paddingEnd="@dimen/movplot_padding_right"
+                    android:paddingStart="@dimen/movplot_padding_right"
+                    android:layout_marginStart="@dimen/movplot_margin_left" />
 
 
                 <TextView
@@ -73,13 +75,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:drawableRight="@drawable/cart_icon"
                     android:fontFamily="sans-serif-regular"
                     android:paddingBottom="@dimen/movcart_padding_bottom"
-                    android:paddingRight="@dimen/movcart_padding_right"
                     android:text="@string/add_movie_to_cart"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="@color/colorPrimary"
+                    android:drawableEnd="@drawable/cart_icon"
+                    android:layout_alignParentEnd="true"
+                    android:paddingEnd="@dimen/movcart_padding_right"
+                    android:paddingStart="@dimen/movcart_padding_right"/>
 
 
             </RelativeLayout>

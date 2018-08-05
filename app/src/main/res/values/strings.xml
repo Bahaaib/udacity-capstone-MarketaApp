@@ -24,7 +24,6 @@
 
 
     <!-- TODO: Signup Activity -->
-    <string name="Welcome">Thanks for installing Marketa - Let\'s get you set up!</string>
     <string name="join">Join Marketa!</string>
     <string name="alreadyMem">Already a Member? <u>Sign in.</u></string>
     <string name="signPass">Create Password</string>
@@ -109,13 +108,31 @@
 
     <!-- TODO: App Widget -->
     <string name="appwidget_text">Pick products to show</string>
-    <string name="widget_action">android.appwidget.action.APPWIDGET_UPDATE2</string>
 
     <!-- TODO: Navigation Menu -->
     <string name="menu_home">Home</string>
     <string name="menu_about">About</string>
     <string name="menu_credit">Credit</string>
     <string name="menu_logout">Logout</string>
+
+
+
+    <string name="logo_image">logo_image</string>
+    <string name="movie_cover">Movie cover</string>
+    <string name="book_image">Book Image</string>
+    <string name="book_card">Book Card</string>
+    <string name="game_card">Game card</string>
+    <string name="header_image">Header image</string>
+    <string name="movie_card_image">Movie card image</string>
+    <string name="movie_cover_image">Movie cover image</string>
+    <string name="quantity">Quantity</string>
+    <string name="voucher">Voucher</string>
+    <string name="d_s">$</string>
+    <string name="minus"> - </string>
+    <string name="prices_str">%1$s $</string>
+    <string name="chk_qty_str">( %1$s )</string>
+
+
 
 
 </resources>

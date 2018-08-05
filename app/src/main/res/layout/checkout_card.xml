@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
 
@@ -16,25 +16,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/checkTitle"
-            android:layout_width="@dimen/chktitle_width"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/chktitle_margin_left"
-            android:layout_marginTop="@dimen/chktitle_margin_top"
-            android:textSize="@dimen/chktitle_txt_size"
-            android:fontFamily="sans-serif"
-            android:maxLines="1"
-            android:ellipsize="end" />
+            <TextView
+                android:id="@+id/checkTitle"
+                android:layout_width="@dimen/chktitle_width"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/chktitle_margin_left"
+                android:layout_marginTop="@dimen/chktitle_margin_top"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif"
+                android:maxLines="1"
+                android:textSize="@dimen/chktitle_txt_size" />
 
-        <TextView
-            android:id="@+id/checkQty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/checkTitle"
-            android:layout_marginTop="@dimen/chkqty_margin_top"
-            android:textSize="@dimen/chkqty_txt_size"
-            android:paddingLeft="@dimen/chkqty_padding_left"/>
+            <TextView
+                android:id="@+id/checkQty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/chkqty_margin_top"
+                android:layout_toEndOf="@id/checkTitle"
+                android:paddingEnd="@dimen/chkqty_padding_left"
+                android:paddingStart="@dimen/chkqty_padding_left"
+                android:textSize="@dimen/chkqty_txt_size" />
 
         </RelativeLayout>
 
@@ -42,20 +43,20 @@
             android:id="@+id/checkImg"
             android:layout_width="@dimen/chkimg_width"
             android:layout_height="@dimen/chkimg_height"
-            android:layout_marginLeft="@dimen/chkimg_margin_left"
+            android:layout_marginStart="@dimen/chkimg_margin_left"
             android:layout_marginTop="@dimen/chkimg_margin_top"
             android:scaleType="fitXY"
-            card_view:riv_border_color="@color/colorPrimary"
-            app:riv_border_width="@dimen/chkimg_border_width"/>
+            app:riv_border_width="@dimen/chkimg_border_width"
+            card_view:riv_border_color="@color/colorPrimary" />
 
         <ImageView
             android:id="@+id/delImg"
             android:layout_width="@dimen/delimg_width"
             android:layout_height="@dimen/delimg_height"
-            android:layout_marginLeft="@dimen/delimg_margin_left"
+            android:layout_marginStart="@dimen/delimg_margin_left"
             android:layout_marginTop="@dimen/delimg_margin_top"
-            android:src="@drawable/delete_icon"
-            android:contentDescription="@string/del_icon" />
+            android:contentDescription="@string/del_icon"
+            android:src="@drawable/delete_icon" />
 
         <View
             android:id="@+id/spaceBar"
