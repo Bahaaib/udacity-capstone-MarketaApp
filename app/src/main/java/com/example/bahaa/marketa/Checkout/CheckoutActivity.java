@@ -2,7 +2,6 @@ package com.example.bahaa.marketa.Checkout;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -66,15 +65,11 @@ public class CheckoutActivity extends AppCompatActivity {
     private NavigationView navigationView;
 
     //Room DB
-    private static final String DATABASE_NAME = "cart_db";
-    //public static CartDatabase cartDatabase;
     public static CartViewModel cartViewModel;
 
     //Firebase Auth
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-
-    private BroadcastReceiver broadcastReceiver;
 
 
     @Override
@@ -133,9 +128,9 @@ public class CheckoutActivity extends AppCompatActivity {
         grandPrice = (TextView) findViewById(R.id.grandTotalPrice);
 
         //Gather all prices data from sending classes for final calculation
-        gPrice = getIntent().getFloatExtra("gameFinalPrice", 0);
-        mPrice = getIntent().getFloatExtra("movieFinalPrice", 0);
-        bPrice = getIntent().getFloatExtra("bookFinalPrice", 0);
+        gPrice = getIntent().getFloatExtra(getString(R.string.game_fprice_xtra), 0);
+        mPrice = getIntent().getFloatExtra(getString(R.string.movie_fprice_xtra), 0);
+        bPrice = getIntent().getFloatExtra(getString(R.string.book_fprice_xtra), 0);
 
 
         //Fill the prices list with the category purchased!

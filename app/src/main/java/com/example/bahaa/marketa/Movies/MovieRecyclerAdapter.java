@@ -102,15 +102,15 @@ public class MovieRecyclerAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onClick(View view) {
                     Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context,
-                            movieCardCover, "SelectedMovie").toBundle();
+                            movieCardCover, context.getResources().getString(R.string.movie_transition)).toBundle();
 
                     //Transfer all the card data to the details activity for further use..
                     Intent movieIntent = new Intent(context, MovieDetailsActivity.class);
-                    movieIntent.putExtra("moviePlot", adapterModel.get(position).getMoviePlot());
-                    movieIntent.putExtra("movieCoverImg",adapterModel.get(position).getThumbnailURL());
-                    movieIntent.putExtra("movieTitle",adapterModel.get(position).getMovieTitle());
-                    movieIntent.putExtra("movieSmallImg",adapterModel.get(position).getImgURL());
-                    movieIntent.putExtra("moviePrice",Float.parseFloat(adapterModel.get(position).getMoviePrice()));
+                    movieIntent.putExtra(context.getResources().getString(R.string.mov_plot_xtra), adapterModel.get(position).getMoviePlot());
+                    movieIntent.putExtra(context.getResources().getString(R.string.mov_coverimg_xtra),adapterModel.get(position).getThumbnailURL());
+                    movieIntent.putExtra(context.getResources().getString(R.string.mov_title_xtra),adapterModel.get(position).getMovieTitle());
+                    movieIntent.putExtra(context.getResources().getString(R.string.mov_smallimg_xtra),adapterModel.get(position).getImgURL());
+                    movieIntent.putExtra(context.getResources().getString(R.string.mov_price_xtra),Float.parseFloat(adapterModel.get(position).getMoviePrice()));
 
                     context.startActivity(movieIntent, bundle);
 

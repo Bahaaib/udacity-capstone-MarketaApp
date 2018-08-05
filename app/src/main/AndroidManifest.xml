@@ -18,30 +18,23 @@
 
         <activity
             android:name=".SplashScreen"
-            android:label="Marketa Gallery"
-            android:screenOrientation="portrait">
+            android:label="Marketa Gallery">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Games.GameDetailsActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name=".Games.GameDetailsActivity" />
         <activity
             android:name=".Checkout.CheckoutActivity"
             android:screenOrientation="portrait"
             android:theme="@style/checkoutActivity" />
-        <activity
-            android:name=".Books.BookDetailsActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Movies.MovieDetailsActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait" />
+
+        <activity android:name=".Books.BookDetailsActivity" />
+        <activity android:name=".Movies.MovieDetailsActivity" />
+        <activity android:name=".MainActivity" />
+
         <activity android:name=".Auth.LoginActivity" />
         <activity android:name=".Auth.SignupActivity" />
         <activity
@@ -53,7 +46,7 @@
             android:theme="@style/aboutActivity" />
         <activity
             android:name=".CreditActivity"
-            android:theme="@style/aboutActivity"></activity>
+            android:theme="@style/aboutActivity" />
 
         <service
             android:name=".Widget.CartWidgetService"
@@ -65,7 +58,7 @@
             android:name=".Widget.CartWidgetProvider"
             android:icon="@drawable/ic_cart">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
 
 

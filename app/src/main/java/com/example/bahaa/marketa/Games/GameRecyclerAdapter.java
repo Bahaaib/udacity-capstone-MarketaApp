@@ -99,22 +99,22 @@ public class GameRecyclerAdapter extends RecyclerView.Adapter {
 
                     //Implement some sexy animation in the transition to/from each card to the next Activity.. ;)
                     Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context,
-                            cardImage, "SelectedGame").toBundle();
+                            cardImage, context.getResources().getString(R.string.game_transition)).toBundle();
 
                     Intent intent = new Intent(context, GameDetailsActivity.class);
 
                     //Transfer all the card data to the details activity for further use..
-                    intent.putExtra("coverImg", adapterModel.get(position).getImageRef());
-                    intent.putExtra("smallImg", adapterModel.get(position).getImageRef());
+                    intent.putExtra(context.getResources().getString(R.string.game_coverimg_xtra), adapterModel.get(position).getImageRef());
+                    intent.putExtra(context.getResources().getString(R.string.game_smallimg_xtra), adapterModel.get(position).getImageRef());
 
-                    intent.putExtra("title", adapterModel.get(position).getGameTitle());
-                    intent.putExtra("plot", adapterModel.get(position).getPlot());
-                    intent.putExtra("date", "Release Date: " + adapterModel.get(position).getRelDate());
-                    intent.putExtra("mode", "Modes: " + adapterModel.get(position).getMode());
-                    intent.putExtra("dev", "Developers: " + adapterModel.get(position).getDevs());
-                    intent.putExtra("platform", "Platforms: " + adapterModel.get(position).getPlatforms());
+                    intent.putExtra(context.getResources().getString(R.string.game_title_xtra), adapterModel.get(position).getGameTitle());
+                    intent.putExtra(context.getResources().getString(R.string.game_plot_xtra), adapterModel.get(position).getPlot());
+                    intent.putExtra(context.getResources().getString(R.string.game_date_xtra), context.getResources().getString(R.string.game_releasetxt_xtra) + adapterModel.get(position).getRelDate());
+                    intent.putExtra(context.getResources().getString(R.string.game_mode_xtra), context.getResources().getString(R.string.game_modetxt_xtra) + adapterModel.get(position).getMode());
+                    intent.putExtra(context.getResources().getString(R.string.game_dev_xtra), context.getResources().getString(R.string.game_devtxt_xtra) + adapterModel.get(position).getDevs());
+                    intent.putExtra(context.getResources().getString(R.string.game_platform_xtra), context.getResources().getString(R.string.game_platformtxt_xtra) + adapterModel.get(position).getPlatforms());
 
-                    intent.putExtra("price", Float.parseFloat(adapterModel.get(position).getPriceValue()));
+                    intent.putExtra(context.getResources().getString(R.string.game_price_xtra), Float.parseFloat(adapterModel.get(position).getPriceValue()));
                     context.startActivity(intent, bundle);
 
                 }

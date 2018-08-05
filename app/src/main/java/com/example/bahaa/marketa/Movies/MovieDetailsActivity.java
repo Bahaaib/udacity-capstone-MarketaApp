@@ -121,9 +121,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
         animationSet.start();
 
         Picasso.with(context)
-                .load(intent.getStringExtra("movieCoverImg"))
+                .load(intent.getStringExtra(getString(R.string.mov_coverimg_xtra)))
                 .into(movieCoverImg);
-        moviePlot.setText(intent.getStringExtra("moviePlot"));
+        moviePlot.setText(intent.getStringExtra(getString(R.string.mov_plot_xtra)));
 
         //Poping up the Purchasing info Window on clicking the text..
         movieCart.setOnClickListener(new View.OnClickListener() {
@@ -195,7 +195,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
 
 
-        moviePrice = getIntent().getFloatExtra("moviePrice", 0);
+        moviePrice = getIntent().getFloatExtra(getString(R.string.mov_price_xtra), 0);
 
 
         //Get device size
@@ -276,16 +276,16 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 //Freeze the Popup window preventing it from moving to checkout if any field input is invalid!
                 if (validCoupon && validQty) {
                     CheckoutModel model = new CheckoutModel();
-                    model.setCheckImg(getIntent().getStringExtra("movieSmallImg"));
-                    model.setCheckTitle(getIntent().getStringExtra("movieTitle"));
+                    model.setCheckImg(getIntent().getStringExtra(getString(R.string.mov_smallimg_xtra)));
+                    model.setCheckTitle(getIntent().getStringExtra(getString(R.string.mov_title_xtra)));
                     model.setCheckQty(itemQty);
 
 
                     itemsList.add(model);
 
-                    checkoutIntent.putExtra("itemList", itemsList);
-                    checkoutIntent.putExtra("movieFinalPrice", movieFinalPrice);
-                    checkoutIntent.putExtra("vCoupon", disFactor);
+                    checkoutIntent.putExtra(getString(R.string.item_list_xtra), itemsList);
+                    checkoutIntent.putExtra(getString(R.string.movie_fprice_xtra), movieFinalPrice);
+                    checkoutIntent.putExtra(getString(R.string.voucher_xtra), disFactor);
 
                     startActivity(checkoutIntent);
 

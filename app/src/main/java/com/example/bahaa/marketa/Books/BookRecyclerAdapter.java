@@ -96,14 +96,14 @@ public class BookRecyclerAdapter extends RecyclerView.Adapter {
 
                     //Implement some sexy animation in the transition to/from each card to the next Activity.. ;)
                     Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context,
-                            bookCover, "SelectedBook").toBundle();
+                            bookCover, context.getResources().getString(R.string.book_transition)).toBundle();
 
                     Intent bookIntent = new Intent(context, BookDetailsActivity.class);
                     //Transfer all the card data to the details activity for further use..
-                    bookIntent.putExtra("bookCoverImg", adapterModel.get(position).getImgURL());
-                    bookIntent.putExtra("bookSummary", adapterModel.get(position).getSummary());
-                    bookIntent.putExtra("bookTitle", adapterModel.get(position).getBookTitle());
-                    bookIntent.putExtra("bookPrice", Float.parseFloat(adapterModel.get(position).getBookPrice()));
+                    bookIntent.putExtra(context.getResources().getString(R.string.book_img_xtra), adapterModel.get(position).getImgURL());
+                    bookIntent.putExtra(context.getResources().getString(R.string.book_sum_xtra), adapterModel.get(position).getSummary());
+                    bookIntent.putExtra(context.getResources().getString(R.string.book_title_xtra), adapterModel.get(position).getBookTitle());
+                    bookIntent.putExtra(context.getResources().getString(R.string.book_price_xtra), Float.parseFloat(adapterModel.get(position).getBookPrice()));
                     context.startActivity(bookIntent, bundle);
                 }
             });

@@ -68,8 +68,6 @@ public class BookDetailsActivity extends AppCompatActivity {
 
     Context context = BookDetailsActivity.this;
 
-    Snackbar snackbar;
-
     RelativeLayout relativeLayout;
 
     //Navigation Drawer
@@ -121,10 +119,10 @@ public class BookDetailsActivity extends AppCompatActivity {
         animationSet.start();
 
         Picasso.with(context)
-                .load(intent.getStringExtra("bookCoverImg"))
+                .load(intent.getStringExtra(getString(R.string.book_img_xtra)))
                 .into(bookCoverImg);
 
-        summary.setText(intent.getStringExtra("bookSummary"));
+        summary.setText(intent.getStringExtra(getString(R.string.book_sum_xtra)));
 
         //Poping up the Purchasing info Window on clicking the text..
         bookCart.setOnClickListener(new View.OnClickListener() {
@@ -193,7 +191,7 @@ public class BookDetailsActivity extends AppCompatActivity {
         proceed = (TextView) inflatedView.findViewById(R.id.proceed);
 
 
-        bookPrice = getIntent().getFloatExtra("bookPrice", 0);
+        bookPrice = getIntent().getFloatExtra(getString(R.string.book_price_xtra), 0);
 
 
         //Get device size
@@ -275,16 +273,16 @@ public class BookDetailsActivity extends AppCompatActivity {
                 //Freeze the Popup window preventing it from moving to checkout if any field input is invalid!
                 if (validCoupon && validQty) {
                     CheckoutModel model = new CheckoutModel();
-                    model.setCheckImg(getIntent().getStringExtra("bookCoverImg"));
-                    model.setCheckTitle(getIntent().getStringExtra("bookTitle"));
+                    model.setCheckImg(getIntent().getStringExtra(getString(R.string.book_img_xtra)));
+                    model.setCheckTitle(getIntent().getStringExtra(getString(R.string.book_title_xtra)));
                     model.setCheckQty(itemQty);
 
 
                     itemsList.add(model);
 
-                    checkoutIntent.putExtra("itemList", itemsList);
-                    checkoutIntent.putExtra("bookFinalPrice", bookFinalPrice);
-                    checkoutIntent.putExtra("vCoupon", disFactor);
+                    checkoutIntent.putExtra(getString(R.string.item_list_xtra), itemsList);
+                    checkoutIntent.putExtra(getString(R.string.book_fprice_xtra), bookFinalPrice);
+                    checkoutIntent.putExtra(getString(R.string.voucher_xtra), disFactor);
 
                     startActivity(checkoutIntent);
 

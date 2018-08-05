@@ -72,6 +72,8 @@
 
     <!-- TODO: Game Fragment -->
     <string name="game_api_url">https://api.myjson.com/bins/11wuyy</string>
+    <string name="game_transition">selectedBook</string>
+
 
     <!-- TODO: Movie Fragment -->
     <string name="movie_api_url">https://api.myjson.com/bins/lu5my</string>
@@ -131,8 +133,44 @@
     <string name="minus"> - </string>
     <string name="prices_str">%1$s $</string>
     <string name="chk_qty_str">( %1$s )</string>
-
-
+    <string name="book_img_xtra">bookCoverImg</string>
+    <string name="book_sum_xtra">bookSummary</string>
+    <string name="book_price_xtra">bookPrice</string>
+    <string name="book_title_xtra">bookTitle</string>
+    <string name="item_list_xtra">itemList</string>
+    <string name="book_fprice_xtra">bookFinalPrice</string>
+    <string name="voucher_xtra">vCoupon</string>
+    <string name="game_fprice_xtra">gameFinalPrice</string>
+    <string name="movie_fprice_xtra">movieFinalPrice</string>
+    <string name="game_coverimg_xtra">coverImg</string>
+    <string name="game_smallimg_xtra">smallImg</string>
+    <string name="game_title_xtra">title</string>
+    <string name="game_plot_xtra">plot</string>
+    <string name="game_date_xtra">date</string>
+    <string name="game_mode_xtra">mode</string>
+    <string name="game_dev_xtra">dev</string>
+    <string name="game_platform_xtra">platform</string>
+    <string name="game_price_xtra">price</string>
+    <string name="game_releasetxt_xtra">Release Date:</string>
+    <string name="game_modetxt_xtra">Modes:</string>
+    <string name="game_devtxt_xtra">Developers:</string>
+    <string name="game_platformtxt_xtra">Platforms:</string>
+    <string name="mov_coverimg_xtra">movieCoverImg</string>
+    <string name="mov_plot_xtra">moviePlot</string>
+    <string name="mov_price_xtra">moviePrice</string>
+    <string name="mov_smallimg_xtra">movieSmallImg</string>
+    <string name="mov_title_xtra">movieTitle</string>
+    <string name="action_update">android.appwidget.action.APPWIDGET_UPDATE</string>
+    <string name="game_xtra">game</string>
+    <string name="movie_xtra">movie</string>
+    <string name="book_xtra">book</string>
+    <string name="suntotal_xtra">subTotal</string>
+    <string name="discount_xtra">discount</string>
+    <string name="grand_xtra">grand</string>
+    <string name="cartlist_key">cartList</string>
+    <string name="games_tab">Games</string>
+    <string name="movies_tab">Movies</string>
+    <string name="books_tab">Books</string>
 
 
 </resources>

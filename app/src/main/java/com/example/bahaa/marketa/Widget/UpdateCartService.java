@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
+import com.example.bahaa.marketa.R;
+
 import java.util.ArrayList;
 
 public class UpdateCartService extends IntentService {
@@ -69,8 +71,8 @@ public class UpdateCartService extends IntentService {
 
 
     private void handleActionUpdateCartWidgets(ArrayList<String> itemsList, ArrayList<String> qtyList) {
-        Intent intent = new Intent("android.appwidget.action.APPWIDGET_UPDATE");
-        intent.setAction("android.appwidget.action.APPWIDGET_UPDATE");
+        Intent intent = new Intent(getString(R.string.action_update));
+        intent.setAction(getString(R.string.action_update));
         intent.putExtra(ITEMS_LIST, itemsList);
         intent.putExtra(QTY_LIST, qtyList);
 

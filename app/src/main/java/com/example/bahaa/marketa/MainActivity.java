@@ -78,14 +78,14 @@ public class MainActivity extends AppCompatActivity {
 
         //Getting last value saved for static variables before destroying activity
         if (savedInstanceState != null) {
-            totGamePrice = savedInstanceState.getFloat("game");
-            totMoviePrice = savedInstanceState.getFloat("movie");
-            totBookPrice = savedInstanceState.getFloat("book");
-            subTotal = savedInstanceState.getFloat("subTotal");
-            discount = savedInstanceState.getFloat("discount");
-            grandTotal = savedInstanceState.getFloat("grand");
+            totGamePrice = savedInstanceState.getFloat(getString(R.string.game_xtra));
+            totMoviePrice = savedInstanceState.getFloat(getString(R.string.movie_xtra));
+            totBookPrice = savedInstanceState.getFloat(getString(R.string.book_xtra));
+            subTotal = savedInstanceState.getFloat(getString(R.string.suntotal_xtra));
+            discount = savedInstanceState.getFloat(getString(R.string.discount_xtra));
+            grandTotal = savedInstanceState.getFloat(getString(R.string.grand_xtra));
 
-            itemsList = (ArrayList) savedInstanceState.getSerializable("cartList");
+            itemsList = (ArrayList) savedInstanceState.getSerializable(getString(R.string.cartlist_key));
         }
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -97,9 +97,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Adding Three tabs to the screen
-        tabLayout.addTab(tabLayout.newTab().setText("Games"));
-        tabLayout.addTab(tabLayout.newTab().setText("Movies"));
-        tabLayout.addTab(tabLayout.newTab().setText("Books"));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.games_tab));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.movies_tab));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.books_tab));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         //Setting up the View Pager that allows flipping activity fragments horizontally like a page

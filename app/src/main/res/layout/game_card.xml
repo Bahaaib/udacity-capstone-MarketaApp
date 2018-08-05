@@ -78,6 +78,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_below="@+id/spaceBar"
+                android:paddingEnd="@dimen/gameprice_padding_right"
+                android:paddingStart="@dimen/gameprice_padding_right"
                 android:paddingTop="@dimen/gameprice_padding_top"
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/gameprice_txt_size" />

@@ -39,9 +39,6 @@ public class CheckoutRecyclerAdapter extends RecyclerView.Adapter {
 
     {
         checkModel = new ArrayList<>();
-   //     mItemsList = items;
-     //   qtyList = qty;
-
 
     }
 
@@ -68,7 +65,7 @@ public class CheckoutRecyclerAdapter extends RecyclerView.Adapter {
         return checkModel.size();
     }
 
-    public void addItems(List<CheckoutModel> adapterList){
+    public void addItems(List<CheckoutModel> adapterList) {
         this.checkModel = adapterList;
         notifyDataSetChanged();
     }
@@ -129,7 +126,6 @@ public class CheckoutRecyclerAdapter extends RecyclerView.Adapter {
 
                 }
             });
-
 
 
         }

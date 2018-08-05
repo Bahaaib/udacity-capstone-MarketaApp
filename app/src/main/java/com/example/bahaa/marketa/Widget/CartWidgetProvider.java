@@ -90,7 +90,7 @@ public class CartWidgetProvider extends AppWidgetProvider {
 
         Log.i("widgetMSG", action);
 
-        if (action.equals("android.appwidget.action.APPWIDGET_UPDATE")) {
+        if (action.equals(context.getResources().getString(R.string.action_update))) {
             cartItemsList = intent.getExtras().getStringArrayList(ITEMS_LIST);
             cartQtyList = intent.getExtras().getStringArrayList(QTY_LIST);
 

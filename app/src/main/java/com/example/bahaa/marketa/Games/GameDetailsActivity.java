@@ -133,20 +133,20 @@ public class GameDetailsActivity extends AppCompatActivity {
         animationSet.start();
 
         Picasso.with(this)
-                .load(getIntent().getStringExtra("coverImg"))
+                .load(getIntent().getStringExtra(getString(R.string.game_coverimg_xtra)))
                 .into(coverImg);
 
 
         Picasso.with(this)
-                .load(getIntent().getStringExtra("smallImg"))
+                .load(getIntent().getStringExtra(getString(R.string.game_smallimg_xtra)))
                 .into(smallImg);
 
-        title.setText(getIntent().getStringExtra("title"));
-        plot.setText(getIntent().getStringExtra("plot"));
-        date.setText(getIntent().getStringExtra("date"));
-        mode.setText(getIntent().getStringExtra("mode"));
-        dev.setText(getIntent().getStringExtra("dev"));
-        platform.setText(getIntent().getStringExtra("platform"));
+        title.setText(getIntent().getStringExtra(getString(R.string.game_title_xtra)));
+        plot.setText(getIntent().getStringExtra(getString(R.string.game_plot_xtra)));
+        date.setText(getIntent().getStringExtra(getString(R.string.game_date_xtra)));
+        mode.setText(getIntent().getStringExtra(getString(R.string.game_mode_xtra)));
+        dev.setText(getIntent().getStringExtra(getString(R.string.game_dev_xtra)));
+        platform.setText(getIntent().getStringExtra(getString(R.string.game_platform_xtra)));
 
         //Poping up the Purchasing info Window on clicking the text..
         gameCart.setOnClickListener(new View.OnClickListener() {
@@ -298,16 +298,16 @@ public class GameDetailsActivity extends AppCompatActivity {
                 //Freeze the Popup window preventing it from moving to checkout if any field input is invalid!
                 if (validCoupon && validQty) {
                     CheckoutModel model = new CheckoutModel();
-                    model.setCheckImg(getIntent().getStringExtra("smallImg"));
-                    model.setCheckTitle(getIntent().getStringExtra("title"));
+                    model.setCheckImg(getIntent().getStringExtra(getString(R.string.game_smallimg_xtra)));
+                    model.setCheckTitle(getIntent().getStringExtra(getString(R.string.game_title_xtra)));
                     model.setCheckQty(itemQty);
 
 
                     itemsList.add(model);
 
-                    checkoutIntent.putExtra("itemList", itemsList);
-                    checkoutIntent.putExtra("gameFinalPrice", gameFinalPrice);
-                    checkoutIntent.putExtra("vCoupon", disFactor);
+                    checkoutIntent.putExtra(getString(R.string.item_list_xtra), itemsList);
+                    checkoutIntent.putExtra(getString(R.string.game_fprice_xtra), gameFinalPrice);
+                    checkoutIntent.putExtra(getString(R.string.voucher_xtra), disFactor);
 
                     startActivity(checkoutIntent);
 
