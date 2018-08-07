@@ -15,9 +15,9 @@ As this application targets various types of products, the intended users vary b
 ## Features
 
 The main features that this application will utilize are the following:
-*• User will be required to register, or if already registered, will be required to login to make use of the application.
-*• All registered users will be able to dynamically browse between the latest available products by the system.
-*• Users can buy products
-*• Check purchase history and restore purchases
-*• Use widget that displays the most recent purchases
-*• App syncs across devices, so users can benefit from a unified user experience.
+* User will be required to register, or if already registered, will be required to login to make use of the application.
+* All registered users will be able to dynamically browse between the latest available products by the system.
+* Users can buy products
+* Check purchase history and restore purchases
+* Use widget that displays the most recent purchases
+* App syncs across devices, so users can benefit from a unified user experience.
