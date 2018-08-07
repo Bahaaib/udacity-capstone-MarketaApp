@@ -7,7 +7,7 @@ The users will have the chance to use this application in multiple devices, as i
 The users will have access to their purchases even after uninstalling the application and will be able to restoreany previously purchased apps and browse their purchase history.
 Users can record tracks, view them, analyze the elevation and speed/pace profiles, export them as GPX file, back them up to cloud and synchronize between devices.
 
-<img src="https://i.imgur.com/d8b6ocg.png?1" > <img src="https://i.imgur.com/VmAp9Xv.png?1" > <img src="https://i.imgur.com/xFb9KFZ.png?1" >
+<img src="https://i.imgur.com/XVUMDr3.png?1" > <img src="https://i.imgur.com/d8b6ocg.png?1" > <img src="https://i.imgur.com/VmAp9Xv.png?1" > <img src="https://i.imgur.com/xFb9KFZ.png?1" >
 
 ## Intended User
 As this application targets various types of products, the intended users vary between Gamers, Book readers and cinephiles.The app refers to English speaking users, thus broadening its target group to users from multiple countries.
